@@ -10,6 +10,14 @@ module.exports = {
     plugins: ['react-refresh'],
     rules: {
         'react-refresh/only-export-components': 'warn',
-        'no-empty-function': ["warn", {"allow": ["arrowFunctions"]}]
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": [
+            "warn",
+            {
+                "allow": [
+                    "arrowFunctions"
+                ]
+            }
+        ]
     },
 }
