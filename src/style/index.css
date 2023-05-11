@@ -28,6 +28,7 @@ html, body, #root {
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    background: var(--default-bg-color);
 }
 
 img, picture, video, canvas, svg {
@@ -44,13 +45,13 @@ a {
     text-decoration: none;
 }
 
-
-.light-mode {
+.light {
     --font-color: #333;
     --default-bg-color: #f3f3f3;
 }
 
-.dark-mode {
+.dark {
     --font-color: #ffff;
     --default-bg-color: #242124;
 }
+

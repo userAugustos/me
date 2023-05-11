@@ -1,4 +1,4 @@
-import {createContext, useContext, useState} from "react";
+import {createContext, useContext, useEffect, useState} from "react";
 
 interface ThemeContext {
     theme: string,
@@ -14,14 +14,26 @@ const ThemeContext = createContext<ThemeContext>({
 export const useThemeContext = () => useContext(ThemeContext)
 
 export function ThemeProvider({children}: { children: React.ReactNode }) {
-    let initialTheme = localStorage.getItem("DINO_TV_THEME");
+    let currentTheme: string;
 
-    const [theme, setTheme] = useState<string>(initialTheme ||= 'light')
+    if (localStorage.getItem("theme")) {
+        currentTheme = localStorage.getItem("theme")! //can use this here, because if the item is null, will not pass by the if
+    } else { // I think is a fair and simple use of else
+        currentTheme = window.matchMedia("prefers-color-scheme: dark)").matches ? 'dark' : 'light';
+    }
+
+    const [theme, setTheme] = useState<string>(currentTheme)
+
+    useEffect(() => { // this I think is cool, a better solution than I see on some mediums
+        document.documentElement.className = theme;
+    }, [theme])
 
     const switchTheme = () => {
         if (theme === 'light') {
+            localStorage.setItem("theme", 'dark')
             return setTheme('dark')
         }
+        localStorage.setItem("theme", 'light')
         setTheme('light')
     }
 
