@@ -7,8 +7,11 @@ export function ThemeChanger() {
     }
 
     return (
-        <button onClick={handleSwitchTheme}>
-            Trocar Tema
-        </button>
+        <section className="flex">
+            <label className="theme-switcher">
+                <input type="checkbox" onChange={handleSwitchTheme} id="slider"/>
+                <span className="slider round"></span>
+            </label>
+        </section>
     )
 }
