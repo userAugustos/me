@@ -85,7 +85,7 @@ h1, h2, h3, p {
     margin: auto 0;
     transition: .4s;
     box-shadow: 0 0 15px #2020203d;
-    background: white url("https://i.ibb.co/FxzBYR9/night.png") no-repeat center;
+    background: white url("/moon.png") no-repeat center;
 }
 
 .theme-switcher input:checked + span.slider {
@@ -93,7 +93,7 @@ h1, h2, h3, p {
 }
 
 .theme-switcher input:checked + span.slider:before {
-    background: white url("https://i.ibb.co/7JfqXxB/sunny.png") no-repeat center;
+    background: white url("/sunny.png") no-repeat center;
 }
 
 .slider.round {
