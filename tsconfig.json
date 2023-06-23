@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
@@ -21,17 +17,18 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "components": [
-        "./src/components"
-      ],
-      "styles": [
-        "./src/style"
-      ]
+      "components": ["./src/components"],
+      "styles": ["./src/style"]
     }
   },
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
+  "baseUrl": ".",
+  "path": {
+    "@pages/*": ["./src/pages/*"],
+    "@hooks/*": ["./src/hooks/*"],
+    "@components": ["./src/components/*"],
+    "@style": ["./src/style/*"]
+  },
   "references": [
     {
       "path": "./tsconfig.node.json"
