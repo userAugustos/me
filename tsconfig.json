@@ -17,18 +17,13 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "components": ["./src/components"],
-      "styles": ["./src/style"]
+      "@pages/*": ["./src/pages/*"],
+      "@components/*": ["./src/components/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@types/*": ["./src/types/*"]
     }
   },
   "include": ["src"],
-  "baseUrl": ".",
-  "path": {
-    "@pages/*": ["./src/pages/*"],
-    "@hooks/*": ["./src/hooks/*"],
-    "@components": ["./src/components/*"],
-    "@style": ["./src/style/*"]
-  },
   "references": [
     {
       "path": "./tsconfig.node.json"

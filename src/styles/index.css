@@ -21,6 +21,10 @@
     -webkit-text-size-adjust: 100%;
 }
 
+[data-theme="dark"] {
+    --svg-white: invert(100%) sepia(2%) saturate(10%) hue-rotate(14deg) brightness(101%) contrast(100%);
+}
+
 html, body, #root {
     height: 100%;
 }
@@ -47,6 +51,22 @@ a {
 
 h1, h2, h3, p {
     text-wrap: balance;
+}
+
+.flex {
+    display: flex;
+}
+
+.relative {
+    position: relative;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.absolute {
+    position: absolute;
 }
 
 .theme-switcher {
@@ -106,7 +126,7 @@ h1, h2, h3, p {
 
 .light {
     --font-color: #333;
-    --default-bg-color: #f3f3f3;
+    --default-bg-color: #F5F3F3;
 }
 
 .dark {

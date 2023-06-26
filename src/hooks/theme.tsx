@@ -30,9 +30,11 @@ export function ThemeProvider({children}: { children: React.ReactNode }) {
 
     const switchTheme = () => {
         if (theme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'dark');
             localStorage.setItem("theme", 'dark')
             return setTheme('dark')
         }
+        document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem("theme", 'light')
         setTheme('light')
     }
