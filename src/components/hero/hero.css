@@ -1,0 +1,31 @@
+.hero-container {
+  background-color: transparent;
+
+  padding: 5%;
+  max-width: 1536px;
+  width: 100%;
+  margin: auto;
+
+  justify-content: space-around;
+  align-items: center;
+  max-height: 70vh;
+}
+
+.hero-container .presentation h3 {
+  font-size: 2rem;
+}
+
+.hero-container .presentation h1 {
+  font-size: 5rem;
+}
+
+.hero-container .presentation p {
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+.hero-container .presentation p span {
+  margin-bottom: .2rem;
+  font-weight: bold;
+  color: #f160ac;
+}
