@@ -2,6 +2,11 @@ import "./nav.css"
 import {ThemeChanger} from "../themeChanger.tsx";
 
 export const Nav = () => {
+
+  // const redirect = () => {
+  //   window.mo
+  // }
+
   return (
     <nav className="flex relative">
       <section className="github flex">

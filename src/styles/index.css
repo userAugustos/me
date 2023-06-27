@@ -7,6 +7,12 @@
 :root {
     --eerie-black: #1B1B1B;
     --chocolate-black: #28231D;
+
+    --gradient-color-1: #f66151;
+    --gradient-color-2: #6ec3f4;
+    --gradient-color-3: #dc8add;
+    --gradient-color-4: #f8e45c;
+
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -23,6 +29,10 @@
 
 [data-theme="dark"] {
     --svg-white: invert(100%) sepia(2%) saturate(10%) hue-rotate(14deg) brightness(101%) contrast(100%);
+    --gradient-color-1: #0ae156;
+    --gradient-color-2: #0491e3;
+    --gradient-color-3: #e625e8;
+    --gradient-color-4: #fbde10;
 }
 
 html, body, #root {
@@ -122,6 +132,11 @@ h1, h2, h3, p {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+#gradient-canvas {
+    width:100%;
+    height:100%;
 }
 
 .light {

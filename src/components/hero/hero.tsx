@@ -7,6 +7,7 @@ export const Hero = () => {
         <h1>Felipe</h1>
         <p>Apaixonado por <span>desenvolvimento de software & opensource</span> focado em desenvolver software de qualidade!</p>
       </section>
+      {/*<img src="/me.png" alt="Felipe Augustos"/>*/}
       <section className="me"></section>
     </div>
   )
