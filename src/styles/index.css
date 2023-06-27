@@ -8,10 +8,10 @@
     --eerie-black: #1B1B1B;
     --chocolate-black: #28231D;
 
-    --gradient-color-1: #f66151;
-    --gradient-color-2: #6ec3f4;
-    --gradient-color-3: #dc8add;
-    --gradient-color-4: #f8e45c;
+    --gradient-color-1: #ffbe6f;
+    --gradient-color-2: #99c1f1;
+    --gradient-color-3: #ffffff;
+    --gradient-color-4: #dc8add;
 
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -29,10 +29,10 @@
 
 [data-theme="dark"] {
     --svg-white: invert(100%) sepia(2%) saturate(10%) hue-rotate(14deg) brightness(101%) contrast(100%);
-    --gradient-color-1: #0ae156;
+    --gradient-color-1: #f66151;
     --gradient-color-2: #0491e3;
-    --gradient-color-3: #e625e8;
-    --gradient-color-4: #fbde10;
+    --gradient-color-3: #dc8add;
+    --gradient-color-4: #f8e45c;
 }
 
 html, body, #root {

@@ -1,21 +1,21 @@
 import './wave.css'
 import { Gradient } from '../../hooks/gradient.js'
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
+import {useThemeContext} from "../../hooks/theme.tsx";
 
 export function Wave() {
+  const canvas = useRef<HTMLCanvasElement>(null);
 
-  const gradient = new Gradient();
-  const dataTheme = document.documentElement.getAttribute('data-theme');
+  const {theme} = useThemeContext();
 
   useEffect(() => {
-    // @ts-ignore
-    gradient.initGradient('#gradient-canvas')
-    console.debug(dataTheme)
-  }, [dataTheme])
+    const gradient = new Gradient();
+    gradient.initGradient()
+  }, [ theme])
 
   return (
     <div className="waves">
-      <canvas id="gradient-canvas" data-transition-in={true}/>
+      <canvas id="gradient-canvas" data-transition-in={true} ref={canvas}/>
     </div>
   )
 }

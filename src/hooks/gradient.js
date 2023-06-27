@@ -253,6 +253,7 @@ class MiniGl {
       })
     }
   }
+
   setSize(e = 640, t = 480) {
     this.width = e, this.height = t, this.canvas.width = e, this.canvas.height = t, this.gl.viewport(0, 0, e, t), this.commonUniforms.resolution.value = [e, t], this.commonUniforms.aspectRatio.value = e / t, this.debug("MiniGL.setSize", {
       width: e,
@@ -312,8 +313,8 @@ class Gradient {
       this.conf.playing = false
     }), e(this, "play", () => {
       requestAnimationFrame(this.animate), this.conf.playing = true
-    }), e(this,"initGradient", (selector) => {
-      this.el = document.querySelector(selector);
+    }), e(this,"something", (selector) => {
+      this.el = document.querySelector('#gradient-canvas');
       this.connect();
       return this;
     })
@@ -500,6 +501,12 @@ class Gradient {
       }
       return hex && `0x${hex.substr(1)}`
     }).filter(Boolean).map(normalizeColor)
+  }
+
+  initGradient() {
+    this.el = document.querySelector('#gradient-canvas');
+    this.connect();
+    return this;
   }
 }
 
