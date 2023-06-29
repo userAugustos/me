@@ -9,9 +9,20 @@
 
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+
   max-height: 70vh;
 
   z-index: 1;
+}
+.hero-container .presentation {
+  max-width: 50%;
+}
+
+.hero-container img {
+  width: 100%;
+  max-width: 500px;
+  margin-top: -3rem;
 }
 
 .hero-container .presentation h3 {
@@ -20,7 +31,7 @@
 
 .hero-container .presentation h1 {
   font-size: 5rem;
-  color: transparent;
+  color: #3a3a3a;
   -webkit-text-stroke: 1px #464343;
 }
 
