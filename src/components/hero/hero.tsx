@@ -1,5 +1,6 @@
 import './hero.css'
 export const Hero = () => {
+
   return(
     <div className="hero-container flex">
       <section className="presentation">
@@ -8,7 +9,7 @@ export const Hero = () => {
         <p>Apaixonado por <span>desenvolvimento de software & opensource</span> focado em desenvolver software de qualidade!</p>
       </section>
       <img src="/me_picrew.png" alt="Felipe Augustos"/>
-      {/*<section className="me"></section>*/}
+      <section className="cat_sleep"></section>
     </div>
   )
 }

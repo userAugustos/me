@@ -16,7 +16,8 @@
   z-index: 1;
 }
 .hero-container .presentation {
-  max-width: 50%;
+  max-width: 500px;
+  width: 100%;
 }
 
 .hero-container img {
@@ -44,4 +45,523 @@
   margin-bottom: .2rem;
   font-weight: bold;
   color: #f160ac;
+}
+
+
+/* cat walk and sleep animation */
+
+.cat_sleep {
+  background-image: url("/cat_gif/57.gif");
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  /*bottom: 2rem;*/
+  /*display: none;*/
+  animation: cat_walk_0 4s steps(20, end), play 2s 3s ease, cat_walk_sleep_big 5s 3s steps(20, end);
+}
+
+@keyframes play {
+  0% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes cat_walk_sleep_big {
+  0% {
+    background-image: url("/cat_gif/0.gif");
+  }
+  1.75% {
+    background-image: url("/cat_gif/1.gif");
+  }
+  3.5% {
+    background-image: url("/cat_gif/2.gif");
+  }
+  5.25% {
+    background-image: url("/cat_gif/3.gif");
+  }
+  7% {
+    background-image: url("/cat_gif/4.gif");
+  }
+  8.75% {
+    background-image: url("/cat_gif/5.gif");
+  }
+  10.5% {
+    background-image: url("/cat_gif/6.gif");
+  }
+  12.25% {
+    background-image: url("/cat_gif/7.gif");
+  }
+  14% {
+    background-image: url("/cat_gif/8.gif");
+  }
+  15.75% {
+    background-image: url("/cat_gif/9.gif");
+  }
+  17.5% {
+    background-image: url("/cat_gif/10.gif");
+  }
+  19.25% {
+    background-image: url("/cat_gif/11.gif");
+  }
+  21% {
+    background-image: url("/cat_gif/12.gif");
+  }
+  22.75% {
+    background-image: url("/cat_gif/13.gif");
+  }
+  24.5% {
+    background-image: url("/cat_gif/14.gif");
+  }
+  26.25% {
+    background-image: url("/cat_gif/15.gif");
+  }
+  28% {
+    background-image: url("/cat_gif/16.gif");
+  }
+  29.75% {
+    background-image: url("/cat_gif/17.gif");
+  }
+  31.5% {
+    background-image: url("/cat_gif/18.gif");
+  }
+  33.25% {
+    background-image: url("/cat_gif/19.gif");
+  }
+  35% {
+    background-image: url("/cat_gif/20.gif");
+  }
+  36.75% {
+    background-image: url("/cat_gif/21.gif");
+  }
+  38.5% {
+    background-image: url("/cat_gif/22.gif");
+  }
+  40.25% {
+    background-image: url("/cat_gif/23.gif");
+  }
+  42% {
+    background-image: url("/cat_gif/24.gif");
+  }
+  43.75% {
+    background-image: url("/cat_gif/25.gif");
+  }
+  45.5% {
+    background-image: url("/cat_gif/26.gif");
+  }
+  47.25% {
+    background-image: url("/cat_gif/27.gif");
+  }
+  49% {
+    background-image: url("/cat_gif/28.gif");
+  }
+  50.75% {
+    background-image: url("/cat_gif/29.gif");
+  }
+  52.5% {
+    background-image: url("/cat_gif/30.gif");
+  }
+  54.25% {
+    background-image: url("/cat_gif/31.gif");
+  }
+  56% {
+    background-image: url("/cat_gif/32.gif");
+  }
+  57.75% {
+    background-image: url("/cat_gif/33.gif");
+  }
+  59.5% {
+    background-image: url("/cat_gif/34.gif");
+  }
+  61.25% {
+    background-image: url("/cat_gif/35.gif");
+  }
+  63% {
+    background-image: url("/cat_gif/36.gif");
+  }
+  64.75% {
+    background-image: url("/cat_gif/37.gif");
+  }
+  66.5% {
+    background-image: url("/cat_gif/38.gif");
+  }
+  68.25% {
+    background-image: url("/cat_gif/39.gif");
+  }
+  70% {
+    background-image: url("/cat_gif/40.gif");
+  }
+  71.75% {
+    background-image: url("/cat_gif/41.gif");
+  }
+  73.5% {
+    background-image: url("/cat_gif/42.gif");
+  }
+  75.25% {
+    background-image: url("/cat_gif/43.gif");
+  }
+  77% {
+    background-image: url("/cat_gif/44.gif");
+  }
+  78.75% {
+    background-image: url("/cat_gif/45.gif");
+  }
+  80.5% {
+    background-image: url("/cat_gif/46.gif");
+  }
+  82.25% {
+    background-image: url("/cat_gif/47.gif");
+  }
+  84% {
+    background-image: url("/cat_gif/48.gif");
+  }
+  85.75% {
+    background-image: url("/cat_gif/49.gif");
+  }
+  87.5% {
+    background-image: url("/cat_gif/50.gif");
+  }
+  89.25% {
+    background-image: url("/cat_gif/51.gif");
+  }
+  91% {
+    background-image: url("/cat_gif/52.gif");
+  }
+  92.75% {
+    background-image: url("/cat_gif/53.gif");
+  }
+  94.5% {
+    background-image: url("/cat_gif/54.gif");
+  }
+  96.25% {
+    background-image: url("/cat_gif/55.gif");
+  }
+  98% {
+    background-image: url("/cat_gif/56.gif");
+  }
+  99.75% {
+    background-image: url("/cat_gif/57.gif");
+  }
+  100% {
+    background-image: url("/cat_gif/57.gif");
+    opacity: 1;
+  }
+}
+
+@keyframes cat_walk_sleep_small {
+  0% {
+    background-image: url("/cat_gif/0.gif");
+  }
+  2.56% {
+    background-image: url("/cat_gif/1.gif");
+  }
+  5.12% {
+    background-image: url("/cat_gif/2.gif");
+  }
+  7.68% {
+    background-image: url("/cat_gif/3.gif");
+  }
+  10.24% {
+    background-image: url("/cat_gif/4.gif");
+  }
+  12.8% {
+    background-image: url("/cat_gif/5.gif");
+  }
+  15.36% {
+    background-image: url("/cat_gif/6.gif");
+  }
+  17.92% {
+    background-image: url("/cat_gif/7.gif");
+  }
+  20.48% {
+    background-image: url("/cat_gif/8.gif");
+  }
+  23.04% {
+    background-image: url("/cat_gif/9.gif");
+  }
+  25.6% {
+    background-image: url("/cat_gif/10.gif");
+  }
+  28.16% {
+    background-image: url("/cat_gif/11.gif");
+  }
+  30.72% {
+    background-image: url("/cat_gif/12.gif");
+  }
+  33.28% {
+    background-image: url("/cat_gif/13.gif");
+  }
+  35.84% {
+    background-image: url("/cat_gif/14.gif");
+  }
+  38.4% {
+    background-image: url("/cat_gif/15.gif");
+  }
+  40.96% {
+    background-image: url("/cat_gif/16.gif");
+  }
+  43.52% {
+    background-image: url("/cat_gif/17.gif");
+  }
+  46.08% {
+    background-image: url("/cat_gif/18.gif");
+  }
+  48.64% {
+    background-image: url("/cat_gif/19.gif");
+  }
+  51.2% {
+    background-image: url("/cat_gif/20.gif");
+  }
+  53.76% {
+    background-image: url("/cat_gif/21.gif");
+  }
+  56.32% {
+    background-image: url("/cat_gif/22.gif");
+  }
+  58.88% {
+    background-image: url("/cat_gif/23.gif");
+  }
+  61.44% {
+    background-image: url("/cat_gif/24.gif");
+  }
+  64% {
+    background-image: url("/cat_gif/25.gif");
+  }
+  66.56% {
+    background-image: url("/cat_gif/26.gif");
+  }
+  69.12% {
+    background-image: url("/cat_gif/27.gif");
+  }
+  71.68% {
+    background-image: url("/cat_gif/28.gif");
+  }
+  74.24% {
+    background-image: url("/cat_gif/29.gif");
+  }
+  76.8% {
+    background-image: url("/cat_gif/30.gif");
+  }
+  79.36% {
+    background-image: url("/cat_gif/31.gif");
+  }
+  81.92% {
+    background-image: url("/cat_gif/32.gif");
+  }
+  84.48% {
+    background-image: url("/cat_gif/33.gif");
+  }
+  87.04% {
+    background-image: url("/cat_gif/34.gif");
+  }
+  89.6% {
+    background-image: url("/cat_gif/35.gif");
+  }
+  92.16% {
+    background-image: url("/cat_gif/36.gif");
+  }
+  94.72% {
+    background-image: url("/cat_gif/37.gif");
+  }
+  97.28% {
+    background-image: url("/cat_gif/38.gif");
+  }
+  99.84% {
+    background-image: url("/cat_gif/39.gif");
+  }
+}
+
+@keyframes cat_walk_0 {
+  0% {
+    background-image: url("/cat_gif/0.gif");
+    opacity: 0;
+  }
+  1% {
+    background-image: url("/cat_gif/1.gif");
+  }
+  2% {
+    background-image: url("/cat_gif/2.gif");
+  }
+  3% {
+    background-image: url("/cat_gif/3.gif");
+  }
+  4% {
+    background-image: url("/cat_gif/4.gif");
+  }
+  5% {
+    background-image: url("/cat_gif/5.gif");
+  }
+  6% {
+    background-image: url("/cat_gif/6.gif");
+  }
+  7% {
+    background-image: url("/cat_gif/7.gif");
+  }
+  8% {
+    background-image: url("/cat_gif/8.gif");
+  }
+  9% {
+    background-image: url("/cat_gif/9.gif");
+  }
+  10% {
+    background-image: url("/cat_gif/10.gif");
+  }
+  11% {
+    background-image: url("/cat_gif/11.gif");
+  }
+  12% {
+    background-image: url("/cat_gif/12.gif");
+  }
+  13% {
+    background-image: url("/cat_gif/13.gif");
+  }
+  14% {
+    background-image: url("/cat_gif/14.gif");
+  }
+  15% {
+    background-image: url("/cat_gif/15.gif");
+  }
+  16% {
+    background-image: url("/cat_gif/16.gif");
+  }
+  17% {
+    background-image: url("/cat_gif/17.gif");
+  }
+  18% {
+    background-image: url("/cat_gif/18.gif");
+  }
+  19% {
+    background-image: url("/cat_gif/19.gif");
+  }
+  20% {
+    background-image: url("/cat_gif/20.gif");
+  }
+  21% {
+    background-image: url("/cat_gif/21.gif");
+  }
+  22% {
+    background-image: url("/cat_gif/22.gif");
+  }
+  23% {
+    background-image: url("/cat_gif/23.gif");
+  }
+  24% {
+    background-image: url("/cat_gif/24.gif");
+  }
+  25% {
+    background-image: url("/cat_gif/25.gif");
+  }
+  26% {
+    background-image: url("/cat_gif/26.gif");
+  }
+  27% {
+    background-image: url("/cat_gif/27.gif");
+  }
+  28% {
+    background-image: url("/cat_gif/28.gif");
+  }
+  29% {
+    background-image: url("/cat_gif/29.gif");
+  }
+  30% {
+    background-image: url("/cat_gif/30.gif");
+  }
+  31% {
+    background-image: url("/cat_gif/31.gif");
+  }
+  32% {
+    background-image: url("/cat_gif/32.gif");
+  }
+  33% {
+    background-image: url("/cat_gif/33.gif");
+  }
+  34% {
+    background-image: url("/cat_gif/34.gif");
+  }
+  35% {
+    background-image: url("/cat_gif/35.gif");
+  }
+  36% {
+    background-image: url("/cat_gif/36.gif");
+  }
+  37% {
+    background-image: url("/cat_gif/37.gif");
+  }
+  38% {
+    background-image: url("/cat_gif/38.gif");
+  }
+  39% {
+    background-image: url("/cat_gif/39.gif");
+  }
+  40% {
+    background-image: url("/cat_gif/40.gif");
+  }
+  41% {
+    background-image: url("/cat_gif/41.gif");
+  }
+  42% {
+    background-image: url("/cat_gif/42.gif");
+  }
+  43% {
+    background-image: url("/cat_gif/43.gif");
+  }
+  44% {
+    background-image: url("/cat_gif/44.gif");
+  }
+  45% {
+    background-image: url("/cat_gif/45.gif");
+  }
+  46% {
+    background-image: url("/cat_gif/46.gif");
+  }
+  47% {
+    background-image: url("/cat_gif/47.gif");
+  }
+  48% {
+    background-image: url("/cat_gif/48.gif");
+  }
+  49% {
+    background-image: url("/cat_gif/49.gif");
+  }
+  50% {
+    background-image: url("/cat_gif/50.gif");
+  }
+  51% {
+    background-image: url("/cat_gif/51.gif");
+  }
+  52% {
+    background-image: url("/cat_gif/52.gif");
+  }
+  53% {
+    background-image: url("/cat_gif/53.gif");
+  }
+  54% {
+    background-image: url("/cat_gif/54.gif");
+  }
+  55% {
+    background-image: url("/cat_gif/55.gif");
+  }
+  56% {
+    background-image: url("/cat_gif/56.gif");
+  }
+  57% {
+    background-image: url("/cat_gif/57.gif");
+  }
+  100% {
+    background-image: url("/cat_gif/57.gif");
+    opacity: 0;
+  }
+}
+
+
+@media (max-width: 1280px) {
+  .cat_sleep {
+    background-image: url("/cat_gif/39.gif");
+    animation: cat_walk_0 4s steps(20, end), play 2s 3s ease, cat_walk_sleep_small 5s 3s steps(20, end);
+    /*margin-left: -200px; !*removing the empty space in the image*!*/
+    top: -2rem;
+    right: -4rem;
+  }
 }
