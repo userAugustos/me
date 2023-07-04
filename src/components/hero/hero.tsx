@@ -1,6 +1,5 @@
 import './hero.css'
 export const Hero = () => {
-
   return(
     <div className="hero-container flex">
       <section className="presentation">
