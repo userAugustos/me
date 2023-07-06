@@ -8,7 +8,6 @@ export const Hero = () => {
         <p>Apaixonado por <span>desenvolvimento de software & opensource</span> focado em desenvolver software de qualidade!</p>
       </section>
       <img src="/me_picrew.png" alt="Felipe Augustos"/>
-      <section className="cat_sleep"></section>
     </div>
   )
 }
