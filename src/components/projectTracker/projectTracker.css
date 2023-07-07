@@ -1,0 +1,28 @@
+.projects {
+  width: 100%;
+  /*height: fit-content;*/
+  height: 60rem;
+  max-height: 60vh;
+}
+
+.project-item {
+  width: 100%;
+  max-width: 600px;
+
+  height: 100%;
+
+  font-size: 1.1rem;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects .me-coding {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  max-width: 600px;
+
+}
