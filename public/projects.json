@@ -1,0 +1,43 @@
+{
+  "itens": [
+    {
+      "id": 1,
+      "description": "Uma nova wikipédia de rick and morty, feita para ter um melhor design, mais direcionada a ter informações diretas dos personagens e suas conexões, feita em 4hrs para um teste técnico, prossegui e usei como estudos de URQL & Graphql Generator",
+      "stack": [
+        {
+          "img": "react",
+          "id": 1,
+          "name": "React"
+        }
+      ],
+      "title": "Wikipédia de rick and morty",
+      "projectLink": "https://useraugustos.github.io/arena-rick-n-morty/"
+    },
+    {
+      "id": 2,
+      "description": "my personal website",
+      "stack": [
+        {
+          "img": "react",
+          "id": 1,
+          "name": "React"
+        }
+      ],
+      "title": "Meu Portfolio",
+      "projectLink": "https://www.${string}"
+    },
+    {
+      "id": 2,
+      "description": "my personal website",
+      "stack": [
+        {
+          "img": "react",
+          "id": 1,
+          "name": "React"
+        }
+      ],
+      "title": "Meu Portfolio",
+      "projectLink": "https://www.${string}"
+    }
+  ]
+}
