@@ -11,7 +11,7 @@ export function Wave() {
   useEffect(() => {
     const gradient = new Gradient();
     gradient.initGradient()
-  }, [ theme])
+  }, [theme])
 
   return (
     <div className="waves">

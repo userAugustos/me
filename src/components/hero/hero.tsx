@@ -1,7 +1,7 @@
 import './hero.css'
 export const Hero = () => {
   return(
-    <div className="hero-container flex">
+    <div className="hero-container flex p-2">
       <section className="presentation">
         <h3>Oi, eu sou o</h3>
         <h1>Felipe Augustos</h1>
