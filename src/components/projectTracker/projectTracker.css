@@ -3,6 +3,9 @@
   /*height: fit-content;*/
   height: 60rem;
   max-height: 60vh;
+
+  background: url("/layered-waves.svg") top no-repeat;
+  background-size: cover;
 }
 
 .project-item {
@@ -20,9 +23,23 @@
 
 .projects .me-coding {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0;
+  right: 0;
 
-  max-width: 600px;
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
 
+  background: url("/me_coding.png") left no-repeat;
+  background-size: contain;
+}
+
+
+@media (max-width: 780px) {
+  .projects .me-coding {
+    bottom: 0;
+    top: unset;
+
+    height: 60%;
+  }
 }
