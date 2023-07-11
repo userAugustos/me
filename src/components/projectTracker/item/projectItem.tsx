@@ -12,15 +12,17 @@ export interface Item {
 
 export const ProjectItem = ({item}: { item: Item }) => {
   return (
-    <div className={`project-item relative flex`}>
+    <div className={`project-item flex`}>
       <h3>
         {item.title}
       </h3>
-      {
-        item.stack.map((tec) => (
-          <img src={tec.img} alt={tec.name} key={tec.id}/>
-        ))
-      }
+      <section className="stacks">
+        {
+          item.stack.map((tec) => (
+            <img src={tec.img} alt={tec.name} key={tec.id}/>
+          ))
+        }
+      </section>
       <section className="description">
         <p>{item.description}</p>
       </section>

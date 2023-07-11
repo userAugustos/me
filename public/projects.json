@@ -5,9 +5,24 @@
       "description": "Uma nova wikipédia de rick and morty, feita para ter um melhor design, mais direcionada a ter informações diretas dos personagens e suas conexões, feita em 4hrs para um teste técnico, prossegui e usei como estudos de URQL & Graphql Generator",
       "stack": [
         {
-          "img": "react",
+          "img": "/stack/react.svg",
           "id": 1,
           "name": "React"
+        },
+        {
+          "img": "/stack/graphql.svg",
+          "id": 1,
+          "name": "GRAPHQL"
+        },
+        {
+          "img": "/stack/typescript.svg",
+          "id": 1,
+          "name": "Typescript"
+        },
+        {
+          "img": "/stack/css.png",
+          "id": 1,
+          "name": "CSS3"
         }
       ],
       "title": "Wikipédia de rick and morty",
