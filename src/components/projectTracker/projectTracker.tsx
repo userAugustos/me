@@ -1,18 +1,18 @@
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Mousewheel, Pagination} from "swiper/modules";
-import {Item, ProjectItem} from "@components/projectTracker/item/projectItem.tsx";
+import {Item, ItemRepository} from "@components/projectTracker/item/item.tsx";
 import './projectTracker.css'
 import {useEffect, useState} from "react";
 
 export function ProjectTracker() {
-  const [itens, setItens] = useState<[Item]>([] as unknown as [Item])
+  const [itens, setItens] = useState<[ItemRepository]>([] as unknown as [ItemRepository])
 
   useEffect(() => {
-    fetch('/projects.json').then(async res => await res.json()).then(data => setItens(data.itens))
+    fetch('/projects.json').then(res => res.json()).then((data: { itens: [ItemRepository] }) => setItens(data.itens))
   }, [])
 
   return (
-    <div className="projects hide p-2 relative">
+    <div className="projects p-2 relative">
       <Swiper
         direction={"vertical"}
         mousewheel={true}
@@ -28,7 +28,7 @@ export function ProjectTracker() {
         {
           itens.length > 0 && itens.map(item => (
             <SwiperSlide key={item.id}>
-              <ProjectItem item={item}/>
+              <Item item={item}/>
             </SwiperSlide>
           ))
         }

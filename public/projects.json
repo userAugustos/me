@@ -11,21 +11,22 @@
         },
         {
           "img": "/stack/graphql.svg",
-          "id": 1,
+          "id": 2,
           "name": "GRAPHQL"
         },
         {
           "img": "/stack/typescript.svg",
-          "id": 1,
+          "id": 3,
           "name": "Typescript"
         },
         {
           "img": "/stack/css.png",
-          "id": 1,
+          "id": 4,
           "name": "CSS3"
         }
       ],
       "title": "Wikipédia de rick and morty",
+      "font": "'Creepster', cursive",
       "projectLink": "https://useraugustos.github.io/arena-rick-n-morty/"
     },
     {

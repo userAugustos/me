@@ -1,4 +1,6 @@
-export interface Item {
+import './item.css'
+
+export interface ItemRepository {
   id: number,
   description: string,
   stack: [{
@@ -7,19 +9,20 @@ export interface Item {
     name: string
   }],
   title: string,
+  font: string,
   projectLink: `https://www.${string}`
 }
 
-export const ProjectItem = ({item}: { item: Item }) => {
+export const Item = ({item}: { item: ItemRepository }) => {
   return (
-    <div className={`project-item flex`}>
-      <h3>
+    <div className={`project-item flex p-2`}>
+      <h3 style={{fontFamily: `${item.font}`}}>
         {item.title}
       </h3>
-      <section className="stacks">
+      <section className="stacks sm-hide">
         {
           item.stack.map((tec) => (
-            <img src={tec.img} alt={tec.name} key={tec.id}/>
+            <img src={tec.img} alt={tec.name} key={`stack_${tec.id}`} style={{animationDelay: `${tec.id * 100}ms`}}/>
           ))
         }
       </section>

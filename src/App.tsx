@@ -5,13 +5,13 @@ import {ProjectTracker} from "@components/projectTracker/projectTracker.tsx";
 
 function App() {
   return (
-    <section>
+    <>
       <Nav/>
       <Hero/>
       <Wave/>
       <ProjectTracker/>
       <div className="blank"></div>
-    </section>
+    </>
   );
 }
 

@@ -142,3 +142,8 @@ h1, h2, h3, p {
   --default-bg-color: #242124;
 }
 
+@media (max-width: 1020px) {
+  .sm-hide {
+    display: none !important;
+  }
+}
