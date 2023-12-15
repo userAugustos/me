@@ -34,8 +34,6 @@ export function ProjectTracker() {
         }
       </Swiper>
       <section className="me-coding shade-out-effect">
-
-        {/*<img src="" alt="Just a draw of me coding"/>*/}
       </section>
     </div>
   )

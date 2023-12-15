@@ -1,9 +1,10 @@
 import "./nav.css"
 import {ThemeChanger} from "../themeChanger.tsx";
+import React from "react";
 
 export const Nav = () => {
-  const redirect = (event:   React.MouseEvent<HTMLElement, MouseEvent>) => {
-    if(event.currentTarget.classList[0] === 'github'){
+  const redirect = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    if (event.currentTarget.classList[0] === 'github') {
       window.open('https://www.github.com/userAugustos')
       return
     }
@@ -21,7 +22,7 @@ export const Nav = () => {
         Felipe Augustos
       </section>
       <section className="theme absolute">
-        <ThemeChanger />
+        <ThemeChanger/>
       </section>
     </nav>
   )

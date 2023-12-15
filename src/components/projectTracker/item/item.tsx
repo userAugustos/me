@@ -29,7 +29,7 @@ export const Item = ({item}: { item: ItemRepository }) => {
       <section className="description">
         <p>{item.description}</p>
       </section>
-      <a href={item.projectLink} className="project-link">
+      <a href={item.projectLink} target="_blank" className="project-link">
         Veja o Projeto
       </a>
     </div>
