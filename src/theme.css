@@ -1,0 +1,47 @@
+@theme {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-rule: var(--rule);
+  --color-rule-soft: var(--rule-soft);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-4: var(--ink-4);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-signal: var(--signal);
+
+  --font-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --breakpoint-tablet: 920px;
+}
+
+[data-theme="light"] {
+  --paper:        oklch(0.985 0.005 80);
+  --paper-2:      oklch(0.965 0.008 80);
+  --rule:         oklch(0.88 0.01 70);
+  --rule-soft:    oklch(0.93 0.008 70);
+  --ink:          oklch(0.18 0.01 60);
+  --ink-2:        oklch(0.34 0.01 60);
+  --ink-3:        oklch(0.52 0.01 60);
+  --ink-4:        oklch(0.72 0.008 60);
+  --accent:       oklch(0.55 0.16 25);
+  --accent-soft:  oklch(0.93 0.04 25);
+  --signal:       oklch(0.65 0.15 145);
+}
+
+[data-theme="dark"] {
+  --paper:        oklch(0.16 0.008 70);
+  --paper-2:      oklch(0.21 0.01 70);
+  --rule:         oklch(0.32 0.01 70);
+  --rule-soft:    oklch(0.25 0.008 70);
+  --ink:          oklch(0.95 0.005 80);
+  --ink-2:        oklch(0.82 0.008 70);
+  --ink-3:        oklch(0.62 0.008 70);
+  --ink-4:        oklch(0.42 0.008 65);
+  --accent:       oklch(0.72 0.16 30);
+  --accent-soft:  oklch(0.32 0.08 25);
+  --signal:       oklch(0.72 0.16 145);
+}

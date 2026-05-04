@@ -1,0 +1,87 @@
+<!-- INTRO -->
+  <header class="pt-12 pb-8 border-b-2 border-ink">
+    <h1
+      data-parallax-target
+      class="fade-up font-sans font-normal text-[clamp(32px,4.4vw,52px)] leading-[1.12] tracking-[-0.025em] m-0 mb-3.5 text-ink-2 max-w-[24ch]"
+      style="--delay: 0.18s"
+    >
+      <strong class="font-bold text-ink">Me</strong>
+      <em class="font-serif italic font-normal text-ink-2 tracking-[-0.015em]">on building software, parenting, learning and living.</em>
+    </h1>
+    <p class="fade-up font-sans text-[16px] text-ink-3 max-w-[56ch] leading-[1.55]" style="--delay: 0.28s">
+      A loose archive — distributed systems and state machines next to notes from raising a kid, things I'm learning this week, aviation rabbit holes, the occasional NBA take, and Mario Kart at midnight. Em português ou em inglês, depending on the day.
+    </p>
+    <div class="fade-up inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.06em] text-ink-2 uppercase mt-4.5" style="--delay: 0.36s">
+      <span class="blip"></span>
+      Open to new work · Q3 2026
+    </div>
+  </header>
+
+  <!-- TICKER -->
+  <div class="fade-in overflow-hidden border-b border-rule font-mono text-[11px] tracking-[0.06em] uppercase text-ink-3 py-3 flex gap-4.5 items-center" style="--delay: 0.6s">
+    <div data-ticker class="ticker-track flex gap-10.5 shrink-0 whitespace-nowrap"></div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <main class="grid grid-cols-[1fr_280px] gap-16 pt-9 max-tablet:grid-cols-1 max-tablet:gap-12">
+
+    <section>
+
+      <!-- FILTERS -->
+      <div class="fade-up flex flex-wrap items-center mb-7" style="--delay: 0.7s">
+        <span class="font-mono text-[10.5px] tracking-[0.16em] text-ink-3 uppercase mr-3">Filter</span>
+        <div data-filters class="flex flex-wrap items-center gap-1"></div>
+      </div>
+
+      <div data-feed class="flex flex-col"></div>
+    </section>
+
+    <!-- RIGHT RAIL -->
+    <aside class="flex flex-col gap-9 sticky top-6 self-start max-tablet:static">
+
+      <!-- Currently shipping -->
+      <div class="fade-up border-t border-ink pt-3.5" style="--delay: 0.85s">
+        <h4 class="font-mono text-[10.5px] font-medium tracking-[0.16em] uppercase text-ink m-0 mb-3.5">Currently shipping</h4>
+        <div data-now-shipping class="flex flex-col gap-3"></div>
+      </div>
+
+      <!-- Last 28 days -->
+      <div class="fade-up border-t border-ink pt-3.5" style="--delay: 0.95s">
+        <h4 class="font-mono text-[10.5px] font-medium tracking-[0.16em] uppercase text-ink m-0 mb-3.5">Last 30 days</h4>
+        <div data-commit-chart></div>
+      </div>
+
+      <!-- Elsewhere -->
+      <div class="fade-up border-t border-ink pt-3.5" style="--delay: 1.05s">
+        <h4 class="font-mono text-[10.5px] font-medium tracking-[0.16em] uppercase text-ink m-0 mb-3.5">Elsewhere</h4>
+        <div data-elsewhere class="flex flex-col gap-2.5"></div>
+      </div>
+
+      <!-- Contact -->
+      <div class="fade-up border-t border-ink pt-3.5" style="--delay: 1.15s">
+        <h4 class="font-mono text-[10.5px] font-medium tracking-[0.16em] uppercase text-ink m-0 mb-3.5">Contact</h4>
+        <a
+          href="mailto:felipe541clash@gmail.com"
+          class="group flex justify-between items-center w-full py-2.5 border-b border-rule font-mono text-[13px] text-ink no-underline transition-[padding,color] duration-300 ease-[cubic-bezier(.7,0,.2,1)] hover:pl-1.5 hover:text-accent"
+        >
+          <span>felipe541clash@gmail.com</span>
+          <span class="font-mono text-ink-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+        <div class="font-serif text-[13px] text-ink-3 leading-[1.55] mt-3 italic">
+          Best way to reach me. I read everything, reply to most.
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 pt-7 border-t-2 border-ink flex justify-between font-mono text-[10.5px] tracking-[0.06em] uppercase text-ink-3 max-tablet:flex-col max-tablet:gap-4">
+    <div class="font-serif text-[14px] italic text-ink-2 normal-case tracking-[0.02em] leading-[1.7] max-w-140">
+      Set in Newsreader &amp; JetBrains Mono. No analytics. No cookies. Built by hand, served from old good HTML, JS, and not so old, but very good <em class="italic text-ink">tailwind</em>.<br/>
+      © 2026 Felipe Augustos · All rites reversed.
+    </div>
+    <div class="text-right leading-[1.8]">
+      v 7.4.2<br/>
+      <span class="text-ink-4">Last deploy · 2h ago</span>
+    </div>
+  </footer>
