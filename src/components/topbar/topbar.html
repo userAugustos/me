@@ -1,0 +1,44 @@
+<div class="fade-in flex items-center justify-between gap-6 border-b border-rule-soft pt-5.5 pb-4.5 font-mono text-[11px] uppercase tracking-[0.04em] text-ink-3 max-tablet:flex-col max-tablet:items-start max-tablet:gap-3.5" style="--delay: 0.05s">
+  <div class="flex flex-wrap items-center gap-4">
+    <span class="dot-pulse w-1.5 h-1.5 rounded-full bg-signal"></span>
+    <span data-dateline>Loading…</span>
+    <span data-weather>Loading…</span>
+  </div>
+
+  <div class="flex items-center gap-3 shrink-0">
+    <button
+      type="button"
+      data-theme-toggle
+      class="grid place-items-center w-9 h-9 rounded-full border border-rule text-ink-3 transition-colors duration-300 hover:text-ink hover:border-ink"
+    >
+      <svg class="theme-icon-dark" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+      </svg>
+      <svg class="theme-icon-light" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+    </button>
+
+    <div class="flex items-center gap-3 shrink-0">
+      <div class="w-9 h-9 rounded-full overflow-hidden relative shadow-[0_0_0_1px_var(--rule)]" aria-label="Felipe Augustos">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="block w-full h-full">
+          <defs>
+            <linearGradient id="avatarGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#d8c4a8"/>
+              <stop offset="1" stop-color="#7a5a3f"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" fill="url(#avatarGrad)"/>
+          <circle cx="32" cy="26" r="11" fill="oklch(0.78 0.04 60)"/>
+          <path d="M 10 64 Q 32 38 54 64 Z" fill="oklch(0.78 0.04 60)"/>
+          <text x="32" y="59" text-anchor="middle" font-family="Newsreader, serif" font-size="9" fill="oklch(0.3 0.02 60)" font-style="italic">FA</text>
+        </svg>
+      </div>
+      <div class="font-sans text-[14px] font-medium text-ink tracking-[-0.005em] normal-case">
+        Felipe Augustos
+        <span class="block font-mono text-[10px] font-normal text-ink-3 uppercase tracking-[0.08em] mt-0.5">Software Engineer</span>
+      </div>
+    </div>
+  </div>
+</div>
