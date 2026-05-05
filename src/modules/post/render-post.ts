@@ -68,7 +68,7 @@ export function renderPostError(root: HTMLElement, retry: () => void): void {
   root.innerHTML = `
     <div class="py-16 max-w-160 font-mono text-[12px] text-ink-3">
       Couldn't load this post.
-      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent">Retry</button>
+      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent cursor-pointer">Retry</button>
       <a href="${withBasePath('/')}" data-home-link class="ml-4 underline text-ink hover:text-accent">Back home</a>
     </div>
   `

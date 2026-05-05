@@ -124,7 +124,7 @@ export function renderFeedError(root: HTMLElement, retry: () => void): void {
   root.innerHTML = `
     <div class="py-10 text-center font-mono text-[12px] text-ink-3">
       Couldn't load posts.
-      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent">Retry</button>
+      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent cursor-pointer">Retry</button>
     </div>
   `
   const button = root.querySelector<HTMLButtonElement>('[data-retry]')

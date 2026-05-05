@@ -213,3 +213,48 @@ body::before {
 
 [data-theme="light"] .theme-icon-light { display: none; }
 [data-theme="dark"] .theme-icon-dark { display: none; }
+
+
+/* Global custom scrollbar styling for all elements */
+* {
+  /* Thin scrollbar styling for WebKit browsers (Chrome, Safari, Edge) */
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-neutral-500;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-neutral-400;
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-neutral-700;
+    border-radius: 3px;
+  }
+
+  /* Firefox scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+/* Dark mode scrollbar colors for Firefox */
+.dark,
+.dark * {
+  scrollbar-color: #737373 transparent;
+}
+
+/* Backwards compatibility - keep .vero-scroll class for explicit usage */
+.vero-scroll {
+  /* Thin scrollbar styling */
+  @apply [&::-webkit-scrollbar]:w-1.5;
+  @apply [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500;
+  @apply [&::-webkit-scrollbar-track]:bg-transparent;
+
+  /* Reserve space for scrollbar to prevent layout shift */
+  scrollbar-gutter: stable;
+}

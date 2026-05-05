@@ -87,7 +87,7 @@ export function renderCommitChartError(root: HTMLElement, retry: () => void): vo
   root.innerHTML = `
     <div class="font-mono text-[11px] text-ink-3 py-2">
       Couldn't load commits.
-      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent">Retry</button>
+      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent cursor-pointer">Retry</button>
     </div>
   `
   const button = root.querySelector<HTMLButtonElement>('[data-retry]')
