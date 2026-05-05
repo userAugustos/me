@@ -49,16 +49,16 @@ export function renderGeneratedPost(root: HTMLElement, post: GeneratedPost): voi
 export function renderPostSkeleton(root: HTMLElement): void {
   root.innerHTML = `
     <article class="pt-10 max-w-190 animate-pulse">
-      <div class="h-3 w-30 bg-rule-soft rounded-[2px] mb-9"></div>
+      <div class="h-3 w-30 bg-rule-soft rounded-xs mb-9"></div>
       <div class="border-b-2 border-ink pb-7 mb-8">
-        <div class="h-3 w-62 bg-rule-soft rounded-[2px] mb-4"></div>
-        <div class="h-16 w-4/5 bg-rule-soft rounded-[2px] mb-3"></div>
-        <div class="h-16 w-3/5 bg-rule-soft rounded-[2px]"></div>
+        <div class="h-3 w-62 bg-rule-soft rounded-xs mb-4"></div>
+        <div class="h-16 w-4/5 bg-rule-soft rounded-xs mb-3"></div>
+        <div class="h-16 w-3/5 bg-rule-soft rounded-xs"></div>
       </div>
       <div class="flex flex-col gap-3">
-        <div class="h-4 w-full bg-rule-soft rounded-[2px]"></div>
-        <div class="h-4 w-11/12 bg-rule-soft rounded-[2px]"></div>
-        <div class="h-4 w-2/3 bg-rule-soft rounded-[2px]"></div>
+        <div class="h-4 w-full bg-rule-soft rounded-xs"></div>
+        <div class="h-4 w-11/12 bg-rule-soft rounded-xs"></div>
+        <div class="h-4 w-2/3 bg-rule-soft rounded-xs"></div>
       </div>
     </article>
   `
