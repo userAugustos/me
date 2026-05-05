@@ -1,46 +1,51 @@
-type Page = {
+import { renderHome } from './modules/home/home'
+import { renderPost } from './modules/post/post'
+import { setNavigator } from './lib/navigation'
+
+type Route = {
+  pattern: RegExp
   render: (root: HTMLElement, params: Record<string, string>) => void
 }
 
-const modules = import.meta.glob<Page>('./modules/**/*.ts')
+const routes: Route[] = [
+  {
+    pattern: /^\/$/,
+    render: (root) => renderHome(root),
+  },
+  {
+    pattern: /^\/posts\/([^/]+)$/,
+    render: (root, params) => renderPost(root, params),
+  },
+]
 
-const routes = Object.entries(modules).map(([file, load]) => {
-  const segments = file
-    .replace(/^\.\/modules\//, '')
-    .replace(/\.ts$/, '')
-    .split('/')
-    .filter(s => s !== 'index')
+let appRoot: HTMLElement | null = null
 
-  const params: string[] = []
-  const source = segments
-    .map(s => s.startsWith('$') ? (params.push(s.slice(1)), '([^/]+)') : s)
-    .join('/')
-
-  return { pattern: new RegExp(`^/${source}$`), params, load }
-}).sort((a, b) => a.params.length - b.params.length)
-
-const app = document.querySelector<HTMLDivElement>('#app')!
-
-async function render() {
-  for (const r of routes) {
-    const m = location.pathname.match(r.pattern)
-    if (!m) continue
-    const values = Object.fromEntries(r.params.map((n, i) => [n, m[i + 1]]))
-    const mod = await r.load()
-    mod.render(app, values)
-    return
-  }
-  app.innerHTML = '<h1>404</h1>'
+function paramsFor(route: Route, match: RegExpMatchArray): Record<string, string> {
+  if (route.pattern.source.includes('posts')) return { slug: match[1] }
+  return {}
 }
 
-window.addEventListener('popstate', render)
-document.addEventListener('click', e => {
-  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
-  const a = (e.target as Element).closest('a')
-  if (!a || a.origin !== location.origin || a.target === '_blank') return
-  e.preventDefault()
-  history.pushState({}, '', a.href)
-  render()
-})
+function renderCurrentRoute(): void {
+  if (!appRoot) return
 
-render()
+  for (const route of routes) {
+    const match = location.pathname.match(route.pattern)
+    if (!match) continue
+    route.render(appRoot, paramsFor(route, match))
+    return
+  }
+
+  appRoot.innerHTML = '<h1 class="font-serif text-ink">404</h1>'
+}
+
+export function mountRouter(app: HTMLElement): void {
+  appRoot = app
+  setNavigator((to) => {
+    history.pushState({}, '', to)
+    renderCurrentRoute()
+    scrollTo(0, 0)
+  })
+
+  window.addEventListener('popstate', renderCurrentRoute)
+  renderCurrentRoute()
+}

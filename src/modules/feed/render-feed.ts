@@ -1,17 +1,7 @@
-import type { FeedItem, RepoItem } from './items'
+import { handleNavigate } from '../../lib/navigation'
+import type { FeedItem } from './types'
 
 const ARROW_SVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M6 18L18 6M9 6h9v9"/></svg>`
-
-const LANG_DOT: Record<RepoItem['lang'], string> = {
-  ts: 'bg-[oklch(0.55_0.13_240)]',
-  go: 'bg-[oklch(0.65_0.11_200)]',
-  rs: 'bg-[oklch(0.55_0.15_30)]',
-  py: 'bg-[oklch(0.65_0.13_90)]',
-}
-
-function isRepo(item: FeedItem): item is RepoItem {
-  return item.kind === 'repo'
-}
 
 function stamp(item: FeedItem): string {
   return `
@@ -39,39 +29,16 @@ function tags(item: FeedItem): string {
   return `<div class="flex flex-wrap gap-1.5 font-mono text-[10.5px] text-ink-3">${cells}</div>`
 }
 
-function repoStats(item: RepoItem): string {
-  return `
-    <div class="flex items-center gap-4 mt-2.5 font-mono text-[11px] text-ink-3">
-      <div class="flex items-center gap-1.5">
-        <span class="w-2 h-2 rounded-full ${LANG_DOT[item.lang]}"></span>
-        ${item.langName}
-      </div>
-      <div class="flex items-center gap-1.5">★ ${item.stars}</div>
-      <div class="flex items-center gap-1.5">⑂ ${item.forks}</div>
-      <div class="flex items-center gap-1.5 text-ink-4">MIT</div>
-    </div>
-  `
-}
-
-function codepeek(item: RepoItem): string {
-  const lines = item.code.join('<br/>')
-  return `
-    <div class="codepeek-line mt-3 border border-rule bg-paper rounded-[3px] font-mono text-[11.5px] text-ink-2 leading-[1.6] max-h-0 opacity-0 overflow-hidden px-3.5 py-0 transition-[max-height,opacity,padding,margin] duration-500 ease-[cubic-bezier(.7,0,.2,1)] group-hover:max-h-[200px] group-hover:opacity-100 group-hover:py-2.5">
-      ${lines}
-    </div>
-  `
-}
-
 function titleBlock(item: FeedItem): string {
   if (item.kind === 'note') {
     return `
       <h3 class="font-sans font-medium text-[17px] tracking-[-0.005em] m-0 mb-2 text-ink transition-colors duration-300 group-hover:text-accent">${item.title}</h3>
-      <p class="font-sans text-[14px] leading-[1.55] text-ink-2 m-0 mb-3 max-w-[62ch] [text-wrap:pretty]">${item.lede}</p>
+      <div class="feed-preview font-sans text-[14px] leading-[1.55] text-ink-2 mb-3 max-w-[62ch] [text-wrap:pretty]">${item.previewHtml}</div>
     `
   }
   return `
     <h3 class="font-serif font-normal text-[26px] leading-[1.18] tracking-[-0.012em] m-0 mb-2 text-ink transition-colors duration-300 group-hover:text-accent" style="font-variation-settings: 'opsz' 28">${item.title}</h3>
-    <p class="font-serif text-[16px] leading-[1.55] text-ink-2 m-0 mb-3 max-w-[62ch] [text-wrap:pretty]" style="font-variation-settings: 'opsz' 16">${item.lede}</p>
+    <div class="feed-preview font-serif text-[16px] leading-[1.55] text-ink-2 mb-3 max-w-[62ch] [text-wrap:pretty]" style="font-variation-settings: 'opsz' 16">${item.previewHtml}</div>
   `
 }
 
@@ -84,18 +51,16 @@ function arrow(): string {
 }
 
 function articleHTML(item: FeedItem): string {
-  const stats = isRepo(item) ? repoStats(item) : ''
-  const code = isRepo(item) ? codepeek(item) : ''
   return `
-    ${stamp(item)}
-    <div class="min-w-0">
-      ${row1(item)}
-      ${titleBlock(item)}
-      ${stats}
-      ${tags(item)}
-      ${code}
-    </div>
-    ${arrow()}
+    <a href="${item.href}" class="grid grid-cols-[92px_1fr_auto] gap-7 py-6 no-underline text-inherit max-tablet:grid-cols-[70px_1fr]">
+      ${stamp(item)}
+      <div class="min-w-0">
+        ${row1(item)}
+        ${titleBlock(item)}
+        ${tags(item)}
+      </div>
+      ${arrow()}
+    </a>
   `
 }
 
@@ -105,7 +70,7 @@ export function renderFeed(root: HTMLElement, feed: FeedItem[]): void {
   feed.forEach((item, index) => {
     const article = document.createElement('article')
     article.className =
-      'feed-item group relative grid grid-cols-[92px_1fr_auto] gap-7 cursor-pointer border-b border-rule-soft py-6 max-tablet:grid-cols-[70px_1fr]'
+      'feed-item group relative cursor-pointer border-b border-rule-soft'
     article.dataset.kind = item.kind
     article.style.opacity = '0'
     article.style.transform = 'translateY(12px)'
@@ -113,6 +78,9 @@ export function renderFeed(root: HTMLElement, feed: FeedItem[]): void {
       'opacity 0.8s cubic-bezier(.2,.7,.2,1), transform 0.8s cubic-bezier(.2,.7,.2,1)'
     article.style.transitionDelay = `${0.78 + index * 0.06}s`
     article.innerHTML = articleHTML(item)
+    article.querySelector<HTMLAnchorElement>('a')?.addEventListener('click', (event) => {
+      handleNavigate(event, item.href)
+    })
     root.appendChild(article)
   })
 

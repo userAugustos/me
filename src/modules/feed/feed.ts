@@ -1,7 +1,7 @@
 import { createActor } from 'xstate'
 import { createLoadingMachine } from '../../lib/loading-machine'
 import { mountFilters } from './filters'
-import type { FeedItem } from './items'
+import type { FeedItem } from './types'
 import { loadFeed } from './load'
 import {
   renderFeed,

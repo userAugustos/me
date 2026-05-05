@@ -1,0 +1,13 @@
+{
+  "slug": "idempotency-property",
+  "title": "Idempotency is a property, not a header",
+  "kind": "talk",
+  "date": "2026-04-11",
+  "meta": "QCon Brasil · 38 min · video",
+  "tags": [
+    "talk",
+    "apis",
+    "qcon"
+  ],
+  "html": "<p>The header is a hint. The property is a guarantee.</p>\n<p>This talk walks through the difference between accepting an <code>Idempotency-Key</code> and actually designing an operation that can be safely retried. The ugly part is that most failures happen after the side effect and before the response.</p>\n<figure data-rehype-pretty-code-figure=\"\"><pre style=\"--shiki-dark:#e1e4e8;--shiki-light:#24292e;--shiki-dark-bg:#24292e;--shiki-light-bg:#fff\" tabindex=\"0\" data-language=\"txt\" data-theme=\"github-dark github-light\"><code data-language=\"txt\" data-theme=\"github-dark github-light\" style=\"display: grid;\"><span data-line=\"\"><span>client sends request</span></span>\n<span data-line=\"\"><span>server commits side effect</span></span>\n<span data-line=\"\"><span>network drops response</span></span>\n<span data-line=\"\"><span>client retries</span></span></code></pre></figure>\n<p>That diagram is where the design starts.</p>"
+}

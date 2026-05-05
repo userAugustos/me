@@ -1,4 +1,4 @@
-import type { FeedItem, FeedKind } from './items'
+import type { FeedItem, FeedKind } from './types'
 
 type FilterKind = FeedKind | 'all'
 

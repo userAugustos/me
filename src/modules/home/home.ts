@@ -16,6 +16,7 @@ function pick<T extends HTMLElement>(root: ParentNode, selector: string): T {
 }
 
 export function renderHome(root: HTMLElement): void {
+  document.title = 'Felipe Augustos — Field Notes'
   root.innerHTML = template
 
   renderTicker(pick(root, '[data-ticker]'), tickerItems)

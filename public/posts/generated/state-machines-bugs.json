@@ -1,0 +1,13 @@
+{
+  "slug": "state-machines-bugs",
+  "title": "On state machines, and why your bug isn't where you think it is",
+  "kind": "essay",
+  "date": "2026-04-30",
+  "meta": "12 min read",
+  "tags": [
+    "state-machines",
+    "rust",
+    "essay"
+  ],
+  "html": "<p>Most production bugs I've debugged in the last decade weren't caused by a bad <code>if</code> statement. They were caused by a state transition nobody had named.</p>\n<p>The expensive bugs tend to happen in the space between nouns. A payment is not exactly pending, not exactly settled, not exactly failed. A user is halfway through onboarding. A deploy has started but not yet become the active version. The code usually knows about these moments, but only as scattered booleans.</p>\n<p>Making the implicit explicit does not make software ceremonious. It makes it debuggable.</p>\n<figure data-rehype-pretty-code-figure=\"\"><pre style=\"--shiki-dark:#e1e4e8;--shiki-light:#24292e;--shiki-dark-bg:#24292e;--shiki-light-bg:#fff\" tabindex=\"0\" data-language=\"rust\" data-theme=\"github-dark github-light\"><code data-language=\"rust\" data-theme=\"github-dark github-light\" style=\"display: grid;\"><span data-line=\"\"><span style=\"--shiki-dark:#F97583;--shiki-light:#D73A49\">enum</span><span style=\"--shiki-dark:#B392F0;--shiki-light:#6F42C1\"> OrderState</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\"> {</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#B392F0;--shiki-light:#6F42C1\">    Draft</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">,</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#B392F0;--shiki-light:#6F42C1\">    AwaitingPayment</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">,</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#B392F0;--shiki-light:#6F42C1\">    Paid</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">,</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#B392F0;--shiki-light:#6F42C1\">    Fulfilled</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">,</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#B392F0;--shiki-light:#6F42C1\">    Cancelled</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">,</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">}</span></span></code></pre></figure>\n<p>The real value is not the enum. The value is being forced to answer: which transitions are allowed, which ones are impossible, and what do we do when production proves us wrong?</p>"
+}

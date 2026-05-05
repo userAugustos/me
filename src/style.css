@@ -107,6 +107,100 @@ body::before {
 .feed-item:hover::before { opacity: 1; }
 .feed-item.is-hidden { display: none; }
 
+.feed-preview > :first-child,
+.post-content > :first-child { margin-top: 0; }
+
+.feed-preview > :last-child,
+.post-content > :last-child { margin-bottom: 0; }
+
+.feed-preview p { margin: 0 0 0.8rem; }
+
+.feed-preview code:not([data-language]) {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  color: var(--accent);
+}
+
+.feed-preview [data-rehype-pretty-code-figure] {
+  margin: 0.9rem 0 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(.7,0,.2,1), opacity 0.5s ease, margin 0.5s ease;
+}
+
+.feed-item:hover .feed-preview [data-rehype-pretty-code-figure] {
+  max-height: 260px;
+  opacity: 1;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--shiki-light-bg);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.65;
+}
+
+[data-theme="dark"] [data-rehype-pretty-code-figure] pre {
+  background: var(--shiki-dark-bg);
+}
+
+[data-rehype-pretty-code-figure] code { counter-reset: line; }
+
+[data-rehype-pretty-code-figure] span { color: var(--shiki-light); }
+
+[data-theme="dark"] [data-rehype-pretty-code-figure] span { color: var(--shiki-dark); }
+
+.post-content {
+  color: var(--ink-2);
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.72;
+  font-variation-settings: "opsz" 18;
+}
+
+.post-content p,
+.post-content ul,
+.post-content ol,
+.post-content blockquote,
+.post-content [data-rehype-pretty-code-figure] {
+  margin: 0 0 1.4rem;
+}
+
+.post-content h2,
+.post-content h3 {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 2.4rem 0 0.8rem;
+}
+
+.post-content h2 { font-size: 32px; }
+.post-content h3 { font-size: 24px; }
+
+.post-content a { color: var(--accent); }
+
+.post-content code:not([data-language]) {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  color: var(--accent);
+}
+
+.post-content [data-rehype-pretty-code-figure] pre {
+  font-size: 12.5px;
+}
+
+.heading-link {
+  color: inherit;
+  text-decoration: none;
+}
+
 .codepeek-line .ln { color: var(--ink-4); margin-right: 12px; user-select: none; }
 .codepeek-line .kw { color: oklch(0.45 0.14 280); }
 .codepeek-line .fn { color: oklch(0.5 0.13 200); }

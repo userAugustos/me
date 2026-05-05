@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "state-machines-bugs",
+    "title": "On state machines, and why your bug isn't where you think it is",
+    "kind": "essay",
+    "date": "2026-04-30",
+    "meta": "12 min read",
+    "tags": [
+      "state-machines",
+      "rust",
+      "essay"
+    ],
+    "href": "/posts/state-machines-bugs",
+    "previewHtml": "<p>Most production bugs I've debugged in the last decade aren't logic errors. They're transitions that were never named.</p>\n<figure data-rehype-pretty-code-figure=\"\"><pre style=\"--shiki-dark:#e1e4e8;--shiki-light:#24292e;--shiki-dark-bg:#24292e;--shiki-light-bg:#fff\" tabindex=\"0\" data-language=\"ts\" data-theme=\"github-dark github-light\"><code data-language=\"ts\" data-theme=\"github-dark github-light\" style=\"display: grid;\"><span data-line=\"\"><span style=\"--shiki-dark:#F97583;--shiki-light:#D73A49\">const</span><span style=\"--shiki-dark:#79B8FF;--shiki-light:#005CC5\"> machine</span><span style=\"--shiki-dark:#F97583;--shiki-light:#D73A49\"> =</span><span style=\"--shiki-dark:#B392F0;--shiki-light:#6F42C1\"> createMachine</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">({</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">  initial: </span><span style=\"--shiki-dark:#9ECBFF;--shiki-light:#032F62\">'idle'</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">,</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">  states: {</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">    idle: { on: { START: </span><span style=\"--shiki-dark:#9ECBFF;--shiki-light:#032F62\">'loading'</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\"> } },</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">    loading: { on: { DONE: </span><span style=\"--shiki-dark:#9ECBFF;--shiki-light:#032F62\">'ready'</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">, FAIL: </span><span style=\"--shiki-dark:#9ECBFF;--shiki-light:#032F62\">'failed'</span><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\"> } },</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">  },</span></span>\n<span data-line=\"\"><span style=\"--shiki-dark:#E1E4E8;--shiki-light:#24292E\">})</span></span></code></pre></figure>"
+  },
+  {
+    "slug": "idempotency-property",
+    "title": "Idempotency is a property, not a header",
+    "kind": "talk",
+    "date": "2026-04-11",
+    "meta": "QCon Brasil · 38 min · video",
+    "tags": [
+      "talk",
+      "apis",
+      "qcon"
+    ],
+    "href": "/posts/idempotency-property",
+    "previewHtml": "<p>Talk on building APIs that survive retries, network partitions, and the inevitable client that wraps your endpoint in a <code>while true</code> loop.</p>"
+  },
+  {
+    "slug": "write-test-first",
+    "title": "Reminder to self: write the test first, even when you're sure",
+    "kind": "note",
+    "date": "2026-02-24",
+    "meta": "Note",
+    "tags": [
+      "note"
+    ],
+    "href": "/posts/write-test-first",
+    "previewHtml": "<p>Especially when you're sure. The bugs I'm proudest of catching all started with the sentence \"I don't need a test for this.\"</p>"
+  }
+]
