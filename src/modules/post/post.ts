@@ -8,7 +8,7 @@ import {
   renderPostSkeleton,
 } from './render-post'
 
-export function renderPost(root: HTMLElement, params: Record<string, string>): void {
+export function renderPost(root: HTMLElement, params: Record<string, string>): () => void {
   const slug = params.slug
   const actor = createActor(createLoadingMachine<GeneratedPost>(() => loadPost(slug)))
 
@@ -24,4 +24,8 @@ export function renderPost(root: HTMLElement, params: Record<string, string>): v
 
   actor.start()
   actor.send({ type: 'TRIGGER' })
+
+  return () => {
+    actor.stop()
+  }
 }

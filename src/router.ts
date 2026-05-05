@@ -3,9 +3,11 @@ import { renderPost } from './modules/post/post'
 import { stripBasePath, withBasePath } from './lib/base-path'
 import { setNavigator } from './lib/navigation'
 
+type Cleanup = () => void
+
 type Route = {
   pattern: RegExp
-  render: (root: HTMLElement, params: Record<string, string>) => void
+  render: (root: HTMLElement, params: Record<string, string>) => void | Cleanup
 }
 
 const routes: Route[] = [
@@ -20,6 +22,7 @@ const routes: Route[] = [
 ]
 
 let appRoot: HTMLElement | null = null
+let currentCleanup: Cleanup | null = null
 
 function paramsFor(route: Route, match: RegExpMatchArray): Record<string, string> {
   if (route.pattern.source.includes('posts')) return { slug: match[1] }
@@ -28,12 +31,14 @@ function paramsFor(route: Route, match: RegExpMatchArray): Record<string, string
 
 function renderCurrentRoute(): void {
   if (!appRoot) return
+  currentCleanup?.()
+  currentCleanup = null
   const pathname = stripBasePath(location.pathname)
 
   for (const route of routes) {
     const match = pathname.match(route.pattern)
     if (!match) continue
-    route.render(appRoot, paramsFor(route, match))
+    currentCleanup = route.render(appRoot, paramsFor(route, match)) ?? null
     return
   }
 

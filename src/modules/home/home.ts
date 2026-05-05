@@ -15,14 +15,20 @@ function pick<T extends HTMLElement>(root: ParentNode, selector: string): T {
   return element
 }
 
-export function renderHome(root: HTMLElement): void {
+export function renderHome(root: HTMLElement): () => void {
   document.title = 'Felipe Augustos — Field Notes'
   root.innerHTML = template
 
   renderTicker(pick(root, '[data-ticker]'), tickerItems)
-  mountFeed(pick(root, '[data-feed]'), pick(root, '[data-filters]'))
+  const feedCleanup = mountFeed(pick(root, '[data-feed]'), pick(root, '[data-filters]'))
   renderNowShipping(pick(root, '[data-now-shipping]'), shippingItems)
-  mountCommitChart(pick(root, '[data-commit-chart]'))
+  const commitChartCleanup = mountCommitChart(pick(root, '[data-commit-chart]'))
   renderElsewhere(pick(root, '[data-elsewhere]'), elsewhereLinks)
-  attachIntroParallax(pick(root, '[data-parallax-target]'))
+  const parallaxCleanup = attachIntroParallax(pick(root, '[data-parallax-target]'))
+
+  return () => {
+    feedCleanup()
+    commitChartCleanup()
+    parallaxCleanup()
+  }
 }

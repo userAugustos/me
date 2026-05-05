@@ -1,18 +1,17 @@
 import { createActor } from 'xstate'
 import { createLoadingMachine } from '../../lib/loading-machine'
 import { mountFilters } from './filters'
-import type { FeedItem } from './types'
 import { loadFeed } from './load'
-import {
-  renderFeed,
-  renderFeedError,
-  renderFeedSkeleton,
-} from './render-feed'
+import { renderFeed, renderFeedError, renderFeedSkeleton } from './render-feed'
+import type { FeedItem } from './types'
 
-export function mountFeed(feedRoot: HTMLElement, filtersRoot: HTMLElement): void {
+export function mountFeed(
+  feedRoot: HTMLElement,
+  filtersRoot: HTMLElement,
+): () => void {
   const actor = createActor(createLoadingMachine<FeedItem[]>(loadFeed))
 
-  actor.subscribe((snapshot) => {
+  actor.subscribe(snapshot => {
     if (snapshot.matches('loading')) {
       renderFeedSkeleton(feedRoot)
       filtersRoot.innerHTML = ''
@@ -27,4 +26,8 @@ export function mountFeed(feedRoot: HTMLElement, filtersRoot: HTMLElement): void
 
   actor.start()
   actor.send({ type: 'TRIGGER' })
+
+  return () => {
+    actor.stop()
+  }
 }

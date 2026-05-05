@@ -8,7 +8,7 @@ import {
   renderCommitChartSkeleton,
 } from './render-commit-chart'
 
-export function mountCommitChart(host: HTMLElement): void {
+export function mountCommitChart(host: HTMLElement): () => void {
   const actor = createActor(createLoadingMachine<CommitChartData>(loadCommitChart))
 
   actor.subscribe((snapshot) => {
@@ -23,4 +23,8 @@ export function mountCommitChart(host: HTMLElement): void {
 
   actor.start()
   actor.send({ type: 'TRIGGER' })
+
+  return () => {
+    actor.stop()
+  }
 }

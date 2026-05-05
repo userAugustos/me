@@ -1,5 +1,7 @@
 import type { CommitChartData } from './types'
 
+const DEFAULT_COLUMN_COUNT = 30
+
 const LEVEL_CLASS: Record<number, string> = {
   0: 'bg-rule-soft',
   1: 'bg-[oklch(0.92_0.04_25)]',
@@ -35,7 +37,8 @@ function buildCell(count: number, index: number): HTMLElement {
 
 function buildGrid(counts: number[]): HTMLElement {
   const grid = document.createElement('div')
-  grid.className = 'grid grid-cols-[repeat(28,1fr)] gap-0.75 mb-2.5'
+  grid.className = 'grid gap-0.75 mb-2.5'
+  grid.style.gridTemplateColumns = `repeat(${counts.length}, minmax(0, 1fr))`
   counts.forEach((count, index) => grid.appendChild(buildCell(count, index)))
   return grid
 }
@@ -58,7 +61,8 @@ export function renderCommitChart(root: HTMLElement, data: CommitChartData): voi
 
 function buildSkeletonGrid(count: number): HTMLElement {
   const grid = document.createElement('div')
-  grid.className = `grid grid-cols-[repeat(${count},1fr)] gap-0.75 mb-2.5 animate-pulse`
+  grid.className = 'grid gap-0.75 mb-2.5 animate-pulse'
+  grid.style.gridTemplateColumns = `repeat(${count}, minmax(0, 1fr))`
   for (let i = 0; i < count; i++) {
     const cell = document.createElement('div')
     cell.className = 'aspect-square rounded-[2px] bg-rule-soft'
@@ -77,7 +81,7 @@ function skeletonLegendHTML(): string {
   `
 }
 
-export function renderCommitChartSkeleton(root: HTMLElement, count = 28): void {
+export function renderCommitChartSkeleton(root: HTMLElement, count = DEFAULT_COLUMN_COUNT): void {
   root.innerHTML = ''
   root.appendChild(buildSkeletonGrid(count))
   root.insertAdjacentHTML('beforeend', skeletonLegendHTML())
