@@ -114,6 +114,7 @@ body::before {
 .post-content > :last-child { margin-bottom: 0; }
 
 .feed-preview p { margin: 0 0 0.8rem; }
+.feed-preview { text-wrap: pretty; }
 
 .feed-preview code:not([data-language]) {
   font-family: var(--font-mono);
@@ -170,6 +171,7 @@ body::before {
 .post-content blockquote,
 .post-content [data-rehype-pretty-code-figure] {
   margin: 0 0 1.4rem;
+  text-wrap: pretty;
 }
 
 .post-content h2,
@@ -179,6 +181,7 @@ body::before {
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin: 2.4rem 0 0.8rem;
+  text-wrap: balance;
 }
 
 .post-content h2 { font-size: 32px; }
@@ -211,8 +214,35 @@ body::before {
 [data-theme="dark"] .codepeek-line .fn { color: oklch(0.78 0.14 200); }
 [data-theme="dark"] .codepeek-line .st { color: oklch(0.8 0.14 140); }
 
-[data-theme="light"] .theme-icon-light { display: none; }
-[data-theme="dark"] .theme-icon-dark { display: none; }
+.theme-icon {
+  position: absolute;
+  transition:
+    opacity 0.3s cubic-bezier(0.2, 0, 0, 1),
+    transform 0.3s cubic-bezier(0.2, 0, 0, 1),
+    filter 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+[data-theme="light"] .theme-icon-dark,
+[data-theme="dark"] .theme-icon-light {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+[data-theme="light"] .theme-icon-light,
+[data-theme="dark"] .theme-icon-dark {
+  opacity: 0;
+  transform: scale(0.25);
+  filter: blur(4px);
+}
+
+.avatar-outline {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .avatar-outline {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
 
 
 /* Global custom scrollbar styling for all elements */
@@ -243,8 +273,8 @@ body::before {
 }
 
 /* Dark mode scrollbar colors for Firefox */
-.dark,
-.dark * {
+[data-theme="dark"],
+[data-theme="dark"] * {
   scrollbar-color: #737373 transparent;
 }
 

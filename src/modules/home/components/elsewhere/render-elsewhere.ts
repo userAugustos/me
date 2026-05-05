@@ -2,13 +2,15 @@ import type { ElsewhereLink } from './items'
 
 function linkHTML(link: ElsewhereLink): string {
   return `
-    <a href="${link.href}" class="group flex justify-between items-center py-2 border-b border-rule-soft text-[13px] text-ink transition-[padding] duration-300 ease-[cubic-bezier(.7,0,.2,1)] hover:pl-2">
-      <span>${link.label}</span>
-      <span class="font-mono text-ink-3 text-[12px] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-accent">→</span>
-    </a>
+    <li class="border-b border-rule-soft">
+      <a href="${link.href}" target="_blank" rel="noreferrer" class="group flex items-center justify-between gap-3 py-2 text-sm text-ink no-underline transition-colors duration-300 hover:text-accent">
+        <span class="min-w-0 text-pretty">${link.label}</span>
+        <span aria-hidden="true" class="shrink-0 font-mono text-xs text-ink-3 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-accent">→</span>
+      </a>
+    </li>
   `
 }
 
 export function renderElsewhere(root: HTMLElement, links: ElsewhereLink[]): void {
-  root.innerHTML = links.map(linkHTML).join('')
+  root.innerHTML = `<ul class="m-0 list-none p-0">${links.map(linkHTML).join('')}</ul>`
 }

@@ -1,7 +1,7 @@
 import type { TickerItem } from './items'
 
 const SPAN_CLASS =
-  "inline-flex items-center gap-2 before:content-['◆'] before:text-ink-4 before:text-[7px]"
+  "inline-flex items-center gap-2 before:content-['•'] before:text-ink-4"
 
 const EMPHASIS_CLASS = 'font-serif normal-case text-ink not-italic'
 
@@ -12,16 +12,20 @@ function emphasisHTML(emphasis: NonNullable<TickerItem['emphasis']>): string {
   return `<em class="${EMPHASIS_CLASS}">${emphasis.title}</em>`
 }
 
-function itemHTML(item: TickerItem, hidden: boolean): string {
-  const aria = hidden ? ' aria-hidden="true"' : ''
+function itemHTML(item: TickerItem): string {
   if (!item.emphasis) {
-    return `<span class="${SPAN_CLASS}"${aria}>${item.text}</span>`
+    return `<li class="${SPAN_CLASS}">${item.text}</li>`
   }
-  return `<span class="${SPAN_CLASS}"${aria}>${item.text} ${emphasisHTML(item.emphasis)}</span>`
+  return `<li class="${SPAN_CLASS}">${item.text} ${emphasisHTML(item.emphasis)}</li>`
+}
+
+function listHTML(items: TickerItem[], hidden: boolean): string {
+  const aria = hidden ? ' aria-hidden="true"' : ''
+  return `<ul class="m-0 flex shrink-0 list-none items-center gap-10 p-0"${aria}>${items.map(itemHTML).join('')}</ul>`
 }
 
 export function renderTicker(root: HTMLElement, items: TickerItem[]): void {
-  const main = items.map((item) => itemHTML(item, false)).join('')
-  const loop = items.map((item) => itemHTML(item, true)).join('')
+  const main = listHTML(items, false)
+  const loop = listHTML(items, true)
   root.innerHTML = main + loop
 }

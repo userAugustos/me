@@ -2,18 +2,20 @@ import type { ShippingItem } from './items'
 
 function rowHTML(item: ShippingItem): string {
   return `
-    <div class="flex items-start gap-3 text-[13px] leading-[1.4]">
-      <div class="w-7 h-7 border border-rule rounded grid place-items-center shrink-0 bg-paper-2 text-ink-2">
-        ${item.icon}
-      </div>
-      <div>
-        <strong class="block font-medium text-ink text-[13px]">${item.name}</strong>
-        <div class="font-mono text-[10.5px] text-ink-3 uppercase tracking-[0.06em] mt-0.5">${item.status}</div>
-      </div>
-    </div>
+    <li>
+      <article class="flex items-start gap-3 text-sm leading-6">
+        <div class="flex size-8 shrink-0 items-center justify-center rounded-md border border-rule bg-paper-2 text-ink-2">
+          ${item.icon}
+        </div>
+        <div class="min-w-0">
+          <h3 class="m-0 text-sm font-medium leading-6 text-ink text-pretty">${item.name}</h3>
+          <p class="mt-1 font-mono text-xs uppercase tracking-wider text-ink-3">${item.status}</p>
+        </div>
+      </article>
+    </li>
   `
 }
 
 export function renderNowShipping(root: HTMLElement, items: ShippingItem[]): void {
-  root.innerHTML = items.map(rowHTML).join('')
+  root.innerHTML = `<ul class="m-0 flex list-none flex-col gap-3 p-0">${items.map(rowHTML).join('')}</ul>`
 }

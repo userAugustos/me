@@ -17,9 +17,9 @@ const FILTER_DEFS: FilterDef[] = [
 ]
 
 const BUTTON_CLASS =
-  'appearance-none bg-transparent border-0 font-sans text-[13px] cursor-pointer px-3 py-1.5 rounded-full transition-colors duration-300 text-ink-3 hover:text-ink aria-pressed:bg-ink aria-pressed:text-paper'
+  'min-h-10 appearance-none rounded-full border border-transparent bg-transparent px-4 py-2 font-sans text-sm text-ink-3 transition-[color,background-color,transform] duration-300 hover:text-ink aria-pressed:border-ink aria-pressed:bg-ink aria-pressed:text-paper active:scale-[0.96] cursor-pointer'
 
-const COUNT_CLASS = 'font-mono text-[10px] text-ink-4 ml-1.5'
+const COUNT_CLASS = 'ml-1.5 font-mono text-xs text-current/70 tabular-nums'
 
 function countItems(items: FeedItem[], kind: FilterKind): number {
   if (kind === 'all') return items.length
@@ -27,7 +27,7 @@ function countItems(items: FeedItem[], kind: FilterKind): number {
 }
 
 function buttonHTML(def: FilterDef, count: number, active: boolean): string {
-  return `<button data-filter="${def.kind}" aria-pressed="${active}" class="${BUTTON_CLASS}">${def.label} <span class="${COUNT_CLASS}">${count}</span></button>`
+  return `<button type="button" data-filter="${def.kind}" aria-pressed="${active}" class="${BUTTON_CLASS}">${def.label} <span class="${COUNT_CLASS}">${count}</span></button>`
 }
 
 function showItem(item: HTMLElement, index: number): void {

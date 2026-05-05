@@ -3,6 +3,13 @@ import type { FeedDate, FeedItem, FeedKind, PostManifestItem } from './types'
 
 const KINDS: FeedKind[] = ['essay', 'repo', 'post', 'talk', 'note']
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const FEED_LOADING_DELAY_MS = 1500
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
+}
 
 function isFeedKind(value: unknown): value is FeedKind {
   return typeof value === 'string' && KINDS.includes(value as FeedKind)
@@ -41,7 +48,10 @@ function toFeedItem(item: PostManifestItem): FeedItem {
 }
 
 export async function loadFeed(): Promise<FeedItem[]> {
-  const response = await fetch(withBasePath('/posts/manifest.json'))
+  const responsePromise = fetch(withBasePath('/posts/manifest.json'))
+  await delay(FEED_LOADING_DELAY_MS)
+
+  const response = await responsePromise
   if (!response.ok) throw new Error(`feed manifest failed: HTTP ${response.status}`)
 
   const data: unknown = await response.json()
