@@ -8,8 +8,8 @@ export interface TickerItem {
 
 export const items: TickerItem[] = [
   {
-    text: 'Reading',
-    emphasis: { title: 'Designing Data-Intensive Applications' },
+    text: 'Watching',
+    emphasis: { title: 'NBA playoffs' },
   },
   {
     text: 'Listening to',
@@ -19,7 +19,7 @@ export const items: TickerItem[] = [
     },
   },
   {
-    text: 'Wraping up',
+    text: 'Wrapping up',
     emphasis: {
       title: 'ThePrimeagen Courses',
       href: 'https://frontendmasters.com/teachers/the-primeagen/',

@@ -5,5 +5,5 @@ export interface ElsewhereLink {
 
 export const items: ElsewhereLink[] = [
   { label: 'github.com/userAugustos', href: 'https://github.com/userAugustos' },
-  { label: 'twitter / @userAugustos', href: 'https://twitter.com/userAugustos' },
+  { label: 'Linkedin / felipe-augustos', href: 'https://www.linkedin.com/in/felipe-augustos/' },
 ]
