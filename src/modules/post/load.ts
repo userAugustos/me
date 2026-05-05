@@ -1,3 +1,4 @@
+import { withBasePath } from '../../lib/base-path'
 import type { FeedKind } from '../feed/types'
 import type { GeneratedPost } from './types'
 
@@ -22,7 +23,7 @@ function isGeneratedPost(value: unknown): value is GeneratedPost {
 }
 
 export async function loadPost(slug: string): Promise<GeneratedPost> {
-  const response = await fetch(`/posts/generated/${slug}.json`)
+  const response = await fetch(withBasePath(`/posts/generated/${slug}.json`))
   if (!response.ok) throw new Error(`post failed: HTTP ${response.status}`)
 
   const data: unknown = await response.json()

@@ -1,3 +1,5 @@
+import { withBasePath } from './base-path'
+
 type Navigator = (to: string) => void
 
 let navigator: Navigator | null = null
@@ -20,7 +22,7 @@ export function navigate(to: string): void {
     return
   }
 
-  location.assign(to)
+  location.assign(withBasePath(to))
 }
 
 export function handleNavigate(event: MouseEvent, to: string): void {

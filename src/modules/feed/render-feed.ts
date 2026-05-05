@@ -1,3 +1,4 @@
+import { withBasePath } from '../../lib/base-path'
 import { handleNavigate } from '../../lib/navigation'
 import type { FeedItem } from './types'
 
@@ -52,7 +53,7 @@ function arrow(): string {
 
 function articleHTML(item: FeedItem): string {
   return `
-    <a href="${item.href}" class="grid grid-cols-[92px_1fr_auto] gap-7 py-6 no-underline text-inherit max-tablet:grid-cols-[70px_1fr]">
+    <a href="${withBasePath(item.href)}" class="grid grid-cols-[92px_1fr_auto] gap-7 py-6 no-underline text-inherit max-tablet:grid-cols-[70px_1fr]">
       ${stamp(item)}
       <div class="min-w-0">
         ${row1(item)}

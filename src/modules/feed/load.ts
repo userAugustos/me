@@ -1,3 +1,4 @@
+import { withBasePath } from '../../lib/base-path'
 import type { FeedDate, FeedItem, FeedKind, PostManifestItem } from './types'
 
 const KINDS: FeedKind[] = ['essay', 'repo', 'post', 'talk', 'note']
@@ -40,7 +41,7 @@ function toFeedItem(item: PostManifestItem): FeedItem {
 }
 
 export async function loadFeed(): Promise<FeedItem[]> {
-  const response = await fetch('/posts/manifest.json')
+  const response = await fetch(withBasePath('/posts/manifest.json'))
   if (!response.ok) throw new Error(`feed manifest failed: HTTP ${response.status}`)
 
   const data: unknown = await response.json()
