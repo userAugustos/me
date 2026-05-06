@@ -3,6 +3,7 @@ import { writeDateline } from '../dateline/dateline'
 import { attachThemeToggle, syncThemeToggle } from '../theme-toggle/theme-toggle'
 import { loadWeather } from '../weather/weather'
 import { getLocale, isLocale, setLocale, subscribeToLocale, translateFragment } from '../../i18n'
+import { GITHUB_AVATAR_URL, PROFILE_NAME } from '../../lib/profile'
 
 function pick<T extends HTMLElement>(root: ParentNode, selector: string): T {
   const element = root.querySelector<T>(selector)
@@ -25,9 +26,12 @@ export function mountTopbar(placeholder: HTMLElement): void {
   const themeToggle = pick(root, '[data-theme-toggle]')
   const dateline = pick(root, '[data-dateline]')
   const weather = pick(root, '[data-weather]')
+  const profileAvatar = pick<HTMLImageElement>(root, '[data-profile-avatar]')
 
   attachLanguageToggle(localeSwitch)
   attachThemeToggle(themeToggle)
+  profileAvatar.src = GITHUB_AVATAR_URL
+  profileAvatar.alt = PROFILE_NAME
 
   const render = (): void => {
     translateFragment(root)

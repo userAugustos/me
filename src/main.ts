@@ -1,6 +1,7 @@
 import './style.css'
 import { mountTopbar } from './components/topbar/topbar'
 import { initializeI18n } from './i18n'
+import { syncProfileFavicon } from './lib/profile'
 import { mountRouter } from './router'
 
 function pick<T extends HTMLElement>(selector: string): T {
@@ -10,5 +11,6 @@ function pick<T extends HTMLElement>(selector: string): T {
 }
 
 initializeI18n()
+syncProfileFavicon()
 mountTopbar(pick('#topbar'))
 mountRouter(pick('#app'))
