@@ -1,8 +1,7 @@
+import { t } from '../../i18n'
+
 const ENDPOINT =
   'https://api.open-meteo.com/v1/forecast?latitude=-23.474177409874983&longitude=-46.31547198780909&current=temperature_2m,wind_speed_10m'
-
-const LOCATION = 'Itaquaquecetuba, SP'
-const FALLBACK = `Very hot, ${LOCATION}`
 
 interface ForecastResponse {
   current: {
@@ -12,17 +11,21 @@ interface ForecastResponse {
 }
 
 function vibe(celsius: number): string {
-  if (celsius < 10) return 'Cold'
-  if (celsius < 16) return 'Chilly'
-  if (celsius < 22) return 'Mild'
-  if (celsius < 28) return 'Warm'
-  if (celsius < 32) return 'Hot'
-  return 'Very hot'
+  if (celsius < 10) return t('weather.vibes.cold')
+  if (celsius < 16) return t('weather.vibes.chilly')
+  if (celsius < 22) return t('weather.vibes.mild')
+  if (celsius < 28) return t('weather.vibes.warm')
+  if (celsius < 32) return t('weather.vibes.hot')
+  return t('weather.vibes.veryHot')
 }
 
 function format(data: ForecastResponse): string {
   const celsius = Math.round(data.current.temperature_2m)
-  return `${vibe(celsius)} · ${celsius}°C · ${LOCATION}`
+  return t('weather.current', {
+    vibe: vibe(celsius),
+    temperature: celsius,
+    location: t('weather.location'),
+  })
 }
 
 export async function loadWeather(target: HTMLElement): Promise<void> {
@@ -35,6 +38,9 @@ export async function loadWeather(target: HTMLElement): Promise<void> {
     }
     target.textContent = format(data as ForecastResponse)
   } catch {
-    target.textContent = FALLBACK
+    target.textContent = t('weather.fallback', {
+      vibe: t('weather.vibes.veryHot'),
+      location: t('weather.location'),
+    })
   }
 }

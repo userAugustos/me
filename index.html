@@ -15,6 +15,12 @@
     <script>
       (function () {
         try {
+          var storedLocale = localStorage.getItem('locale');
+          var locale = storedLocale === 'pt' || storedLocale === 'en'
+            ? storedLocale
+            : (navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+          document.documentElement.lang = locale === 'pt' ? 'pt-BR' : 'en-US';
+
           var stored = localStorage.getItem('theme');
           var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
           var theme = stored === 'light' || stored === 'dark' ? stored : (systemDark ? 'dark' : 'light');

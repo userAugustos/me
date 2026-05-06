@@ -1,8 +1,7 @@
 import { withBasePath } from '../../lib/base-path'
-import type { FeedDate, FeedItem, FeedKind, PostManifestItem } from './types'
+import type { FeedItem, FeedKind, PostManifestItem } from './types'
 
 const KINDS: FeedKind[] = ['essay', 'repo', 'post', 'talk', 'note']
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const FEED_LOADING_DELAY_MS = 1500
 
 function delay(ms: number): Promise<void> {
@@ -30,23 +29,6 @@ function isPostManifestItem(value: unknown): value is PostManifestItem {
     && item.tags.every((tag) => typeof tag === 'string')
 }
 
-function formatDate(isoDate: string): FeedDate {
-  const [year, month, day] = isoDate.split('-')
-  return {
-    day,
-    mo: MONTHS[Number(month) - 1] ?? month,
-    year: year.slice(2),
-  }
-}
-
-function toFeedItem(item: PostManifestItem): FeedItem {
-  return {
-    ...item,
-    isoDate: item.date,
-    date: formatDate(item.date),
-  }
-}
-
 export async function loadFeed(): Promise<FeedItem[]> {
   const responsePromise = fetch(withBasePath('/posts/manifest.json'))
   await delay(FEED_LOADING_DELAY_MS)
@@ -59,5 +41,5 @@ export async function loadFeed(): Promise<FeedItem[]> {
     throw new Error('feed manifest has invalid shape')
   }
 
-  return data.map(toFeedItem)
+  return data
 }

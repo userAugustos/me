@@ -1,3 +1,4 @@
+import { intlLocaleFor, t } from '../../i18n';
 import { withBasePath } from '../../lib/base-path';
 import { handleNavigate } from '../../lib/navigation';
 import type { FeedItem } from './types';
@@ -7,11 +8,32 @@ const LOADING_GIF_SRC = encodeURI(
   withBasePath('/assets/Super Mario Spinning Sticker by GIPHY Gaming.gif'),
 );
 
+function stampParts(isoDate: string): { day: string; month: string; year: string } {
+  const date = new Date(`${isoDate}T00:00:00Z`);
+  const locale = intlLocaleFor();
+
+  return {
+    day: new Intl.DateTimeFormat(locale, {
+      day: '2-digit',
+      timeZone: 'UTC',
+    }).format(date),
+    month: new Intl.DateTimeFormat(locale, {
+      month: 'short',
+      timeZone: 'UTC',
+    }).format(date),
+    year: new Intl.DateTimeFormat(locale, {
+      year: '2-digit',
+      timeZone: 'UTC',
+    }).format(date),
+  };
+}
+
 function stamp(item: FeedItem): string {
+  const parts = stampParts(item.date);
   return `
-    <time datetime="${item.isoDate}" class="block pt-1 font-mono text-xs leading-5 tracking-wide text-ink-3 tabular-nums sm:w-20 sm:flex-none">
-      <span class="block text-sm text-ink">${item.date.day} ${item.date.mo}</span>
-      <span class="text-ink-4">'${item.date.year}</span>
+    <time datetime="${item.date}" class="block pt-1 font-mono text-xs leading-5 tracking-wide text-ink-3 tabular-nums sm:w-20 sm:flex-none">
+      <span class="block text-sm text-ink">${parts.day} ${parts.month}</span>
+      <span class="text-ink-4">'${parts.year}</span>
     </time>
   `;
 }
@@ -19,7 +41,7 @@ function stamp(item: FeedItem): string {
 function row1(item: FeedItem): string {
   return `
     <p class="mb-2 flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-3">
-      <span class="text-accent font-medium">${item.kind}</span>
+      <span class="text-accent font-medium">${t(`feed.kinds.${item.kind}`)}</span>
       <span class="h-px w-3 bg-ink-4"></span>
       <span>${item.meta}</span>
     </p>
@@ -103,9 +125,9 @@ export function renderFeed(root: HTMLElement, feed: FeedItem[]): void {
 
 export function renderFeedSkeleton(root: HTMLElement): void {
   root.innerHTML = `
-    <div class="flex flex-col h-96 items-center justify-center gap-3 py-8" role="status" aria-live="polite" aria-label="Loading">
+    <div class="flex h-96 flex-col items-center justify-center gap-3 py-8" role="status" aria-live="polite" aria-label="${t('common.loading')}">
       <img src="${LOADING_GIF_SRC}" alt="" class="size-25 max-w-full object-contain [image-rendering:pixelated]" />
-      <p class="m-0 font-mono text-xs uppercase tracking-widest text-ink-3">Loading posts…</p>
+      <p class="m-0 font-mono text-xs uppercase tracking-widest text-ink-3">${t('common.loadingPosts')}</p>
     </div>
   `;
 }
@@ -113,8 +135,8 @@ export function renderFeedSkeleton(root: HTMLElement): void {
 export function renderFeedError(root: HTMLElement, retry: () => void): void {
   root.innerHTML = `
     <div class="py-10 text-center font-mono text-sm text-ink-3">
-      Couldn't load posts.
-      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent cursor-pointer">Retry</button>
+      ${t('feed.errors.load')}
+      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent cursor-pointer">${t('common.retry')}</button>
     </div>
   `;
   const button = root.querySelector<HTMLButtonElement>('[data-retry]');

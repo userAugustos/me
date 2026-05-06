@@ -1,3 +1,4 @@
+import { intlLocaleFor, t } from '../../i18n'
 import type { CommitChartData } from './types'
 
 const DEFAULT_COLUMN_COUNT = 30
@@ -22,10 +23,18 @@ function totalCommits(counts: number[]): number {
   return counts.reduce((sum, n) => sum + n, 0)
 }
 
+function formatDayLabel(ms: number): string {
+  return new Intl.DateTimeFormat(intlLocaleFor(), {
+    month: 'short',
+    day: '2-digit',
+    timeZone: 'UTC',
+  }).format(new Date(ms))
+}
+
 function buildCell(count: number, index: number): HTMLElement {
   const cell = document.createElement('div')
   cell.className = `aspect-square rounded-[2px] transition-transform duration-300 hover:scale-[1.4] ${LEVEL_CLASS[heatLevel(count)]}`
-  cell.title = `${count} commits`
+  cell.title = t('commitChart.total', { count })
   cell.style.opacity = '0'
   cell.style.transition += ', opacity 0.5s ease'
   cell.style.transitionDelay = `${1.0 + index * 0.015}s`
@@ -46,9 +55,9 @@ function buildGrid(counts: number[]): HTMLElement {
 function legendHTML(data: CommitChartData): string {
   return `
     <div class="font-mono text-[10px] text-ink-3 flex justify-between uppercase tracking-wider">
-      <span>${data.from}</span>
-      <span>${totalCommits(data.counts)} commits</span>
-      <span>${data.to}</span>
+      <span>${formatDayLabel(data.from)}</span>
+      <span>${t('commitChart.total', { count: totalCommits(data.counts) })}</span>
+      <span>${formatDayLabel(data.to)}</span>
     </div>
   `
 }
@@ -75,7 +84,7 @@ function skeletonLegendHTML(): string {
   return `
     <div class="font-mono text-[10px] text-ink-3 flex justify-between uppercase tracking-wider opacity-60">
       <span>—</span>
-      <span>Loading commits…</span>
+      <span>${t('commitChart.loading')}</span>
       <span>—</span>
     </div>
   `
@@ -90,8 +99,8 @@ export function renderCommitChartSkeleton(root: HTMLElement, count = DEFAULT_COL
 export function renderCommitChartError(root: HTMLElement, retry: () => void): void {
   root.innerHTML = `
     <div class="font-mono text-[11px] text-ink-3 py-2">
-      Couldn't load commits.
-      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent cursor-pointer">Retry</button>
+      ${t('commitChart.errors.load')}
+      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent cursor-pointer">${t('common.retry')}</button>
     </div>
   `
   const button = root.querySelector<HTMLButtonElement>('[data-retry]')

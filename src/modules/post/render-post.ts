@@ -1,16 +1,15 @@
+import { intlLocaleFor, t } from '../../i18n'
 import { withBasePath } from '../../lib/base-path'
 import { handleNavigate } from '../../lib/navigation'
 import type { GeneratedPost } from './types'
 
-const DATE_FORMATTER = new Intl.DateTimeFormat('en-US', {
-  month: 'long',
-  day: 'numeric',
-  year: 'numeric',
-  timeZone: 'UTC',
-})
-
 function formatDate(isoDate: string): string {
-  return DATE_FORMATTER.format(new Date(`${isoDate}T00:00:00Z`))
+  return new Intl.DateTimeFormat(intlLocaleFor(), {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(`${isoDate}T00:00:00Z`))
 }
 
 function tagsHTML(tags: string[]): string {
@@ -23,11 +22,11 @@ export function renderGeneratedPost(root: HTMLElement, post: GeneratedPost): voi
   document.title = `${post.title} — Felipe Augustos`
   root.innerHTML = `
     <article class="max-w-3xl pt-10">
-      <a href="${withBasePath('/')}" data-home-link class="mb-9 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-3 no-underline transition-colors duration-300 hover:text-accent">← Field notes</a>
+      <a href="${withBasePath('/')}" data-home-link class="mb-9 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-3 no-underline transition-colors duration-300 hover:text-accent">← ${t('post.backToFieldNotes')}</a>
 
       <header class="mb-8 border-b-2 border-ink pb-7">
         <p class="mb-3 font-mono text-xs uppercase tracking-widest text-ink-3">
-          <span class="text-accent">${post.kind}</span>
+          <span class="text-accent">${t(`feed.kinds.${post.kind}`)}</span>
           <span class="mx-2 text-ink-4">/</span>
           <span>${formatDate(post.date)}</span>
           <span class="mx-2 text-ink-4">/</span>
@@ -67,9 +66,9 @@ export function renderPostSkeleton(root: HTMLElement): void {
 export function renderPostError(root: HTMLElement, retry: () => void): void {
   root.innerHTML = `
     <div class="max-w-2xl py-16 font-mono text-sm text-ink-3">
-      Couldn't load this post.
-      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent cursor-pointer">Retry</button>
-      <a href="${withBasePath('/')}" data-home-link class="ml-4 underline text-ink hover:text-accent">Back home</a>
+      ${t('post.errors.load')}
+      <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent cursor-pointer">${t('common.retry')}</button>
+      <a href="${withBasePath('/')}" data-home-link class="ml-4 underline text-ink hover:text-accent">${t('common.backHome')}</a>
     </div>
   `
   const button = root.querySelector<HTMLButtonElement>('[data-retry]')

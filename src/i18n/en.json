@@ -1,0 +1,83 @@
+{
+  "site": {
+    "title": "Felipe Augustos — Field Notes",
+    "fieldNotes": "Field notes"
+  },
+  "common": {
+    "loading": "Loading…",
+    "retry": "Retry",
+    "backHome": "Back home",
+    "loadingPosts": "Loading posts…"
+  },
+  "topbar": {
+    "role": "Software Engineer",
+    "localeSwitcher": "Change language",
+    "switchToLightTheme": "Switch to light theme",
+    "switchToDarkTheme": "Switch to dark theme"
+  },
+  "home": {
+    "heroLead": "Notes",
+    "heroTail": "on software, parenthood, learning, and the rest of life.",
+    "heroDescription": "A personal archive of distributed systems, state machines, parenting, current curiosities, aviation rabbit holes, and the occasional NBA or Mario Kart tangent. Written in Portuguese or English, depending on the day.",
+    "heroStatus": "Available for new work · Q3 2026",
+    "currentNotesAria": "Current notes",
+    "filter": "Filter",
+    "filtersAria": "Filter posts by kind",
+    "currentlyWriting": "Currently writing",
+    "recentCommits": "Last 30 days (only public repos)",
+    "elsewhere": "Elsewhere",
+    "externalProfilesAria": "External profiles",
+    "contact": "Contact",
+    "contactDescription": "Best way to reach me. I read everything, reply to most.",
+    "footerDescription": "Set in Newsreader and JetBrains Mono. No analytics. No cookies. Built by hand with HTML, TypeScript, and Tailwind.",
+    "footerCopyright": "© 2026 Felipe Augustos · All rights reversed.",
+    "footerVersion": "v7.4.2",
+    "footerDeploy": "Last deploy · 2h ago"
+  },
+  "feed": {
+    "filters": {
+      "all": "All",
+      "essay": "Essays",
+      "repo": "Repos",
+      "talk": "Talks",
+      "post": "Posts",
+      "note": "Notes"
+    },
+    "kinds": {
+      "essay": "Essay",
+      "repo": "Repo",
+      "talk": "Talk",
+      "post": "Post",
+      "note": "Note"
+    },
+    "errors": {
+      "load": "Couldn't load posts."
+    }
+  },
+  "post": {
+    "backToFieldNotes": "Field notes",
+    "errors": {
+      "load": "Couldn't load this post."
+    }
+  },
+  "commitChart": {
+    "loading": "Loading commits…",
+    "total": "{count} commits",
+    "errors": {
+      "load": "Couldn't load commits."
+    }
+  },
+  "weather": {
+    "location": "Itaquaquecetuba, SP",
+    "fallback": "{vibe} · {location}",
+    "current": "{vibe} · {temperature}°C · {location}",
+    "vibes": {
+      "cold": "Cold",
+      "chilly": "Chilly",
+      "mild": "Mild",
+      "warm": "Warm",
+      "hot": "Hot",
+      "veryHot": "Very hot"
+    }
+  }
+}

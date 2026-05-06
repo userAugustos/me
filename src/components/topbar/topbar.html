@@ -1,32 +1,93 @@
-<header class="fade-in flex flex-col gap-4 border-b border-rule-soft py-5 font-mono text-xs uppercase tracking-wider text-ink-3 sm:flex-row sm:items-center sm:justify-between" style="--delay: 0.05s">
+<header
+  class="fade-in flex flex-col gap-4 border-b border-rule-soft py-5 font-mono text-xs uppercase tracking-wider text-ink-3 sm:flex-row sm:items-center sm:justify-between"
+  style="--delay: 0.05s"
+>
   <div class="flex flex-wrap items-center gap-x-4 gap-y-2 tabular-nums">
     <p class="m-0 flex items-center gap-3">
-      <span aria-hidden="true" class="dot-pulse size-1.5 rounded-full bg-signal"></span>
-      <span data-dateline>Loading…</span>
+      <span
+        aria-hidden="true"
+        class="dot-pulse size-1.5 rounded-full bg-signal"
+      ></span>
+      <span data-dateline data-i18n="common.loading">Loading…</span>
     </p>
-    <p data-weather class="m-0">Loading…</p>
+    <p data-weather data-i18n="common.loading" class="m-0">Loading…</p>
   </div>
 
   <div class="flex items-center justify-between gap-3 sm:justify-start">
+    <div
+      data-locale-switch
+      role="group"
+      data-i18n-aria-label="topbar.localeSwitcher"
+      class="flex items-center gap-1 rounded-full border border-rule px-3 py-2"
+    >
+      <button
+        type="button"
+        data-locale-option="pt"
+        aria-pressed="false"
+        class="cursor-pointer border-0 bg-transparent p-0 text-inherit transition-colors duration-300 hover:text-ink aria-pressed:font-semibold aria-pressed:text-ink"
+      >
+        PT
+      </button>
+      <span aria-hidden="true" class="text-ink-4">|</span>
+      <button
+        type="button"
+        data-locale-option="en"
+        aria-pressed="false"
+        class="cursor-pointer border-0 bg-transparent p-0 text-inherit transition-colors duration-300 hover:text-ink aria-pressed:font-semibold aria-pressed:text-ink"
+      >
+        EN
+      </button>
+    </div>
+
     <button
       type="button"
       data-theme-toggle
       class="relative grid size-10 shrink-0 place-items-center rounded-full border border-rule text-ink-3 transition-[color,border-color,transform] duration-300 hover:border-ink hover:text-ink active:scale-[0.96]"
     >
-      <svg class="theme-icon theme-icon-dark size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+      <svg
+        class="theme-icon theme-icon-dark size-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
       </svg>
-      <svg class="theme-icon theme-icon-light size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4"/>
-        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      <svg
+        class="theme-icon theme-icon-light size-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+        />
       </svg>
     </button>
 
     <div class="flex items-center gap-3 shrink-0">
-      <img src="https://avatars.githubusercontent.com/u/47693479?v=4" alt="Felipe Augustos" class="avatar-outline size-10 rounded-full object-cover" />
-      <p class="m-0 font-sans text-sm font-medium tracking-tight text-ink normal-case">
+      <img
+        src="https://avatars.githubusercontent.com/u/47693479?v=4"
+        alt="Felipe Augustos"
+        class="avatar-outline size-10 rounded-full object-cover"
+      />
+      <p
+        class="m-0 font-sans text-sm font-medium tracking-tight text-ink normal-case"
+      >
         Felipe Augustos
-        <span class="mt-0.5 block font-mono text-xs font-normal uppercase tracking-widest text-ink-3">Software Engineer</span>
+        <span
+          data-i18n="topbar.role"
+          class="mt-0.5 block font-mono text-xs font-normal uppercase tracking-widest text-ink-3"
+          >Software Engineer</span
+        >
       </p>
     </div>
   </div>

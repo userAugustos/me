@@ -1,5 +1,6 @@
 import './style.css'
 import { mountTopbar } from './components/topbar/topbar'
+import { initializeI18n } from './i18n'
 import { mountRouter } from './router'
 
 function pick<T extends HTMLElement>(selector: string): T {
@@ -8,5 +9,6 @@ function pick<T extends HTMLElement>(selector: string): T {
   return element
 }
 
+initializeI18n()
 mountTopbar(pick('#topbar'))
 mountRouter(pick('#app'))

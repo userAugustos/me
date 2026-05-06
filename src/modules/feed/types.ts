@@ -1,17 +1,10 @@
 export type FeedKind = 'essay' | 'repo' | 'post' | 'talk' | 'note'
 
-export interface FeedDate {
-  day: string
-  mo: string
-  year: string
-}
-
 export interface FeedItem {
   slug: string
   href: string
   kind: FeedKind
-  date: FeedDate
-  isoDate: string
+  date: string
   meta: string
   title: string
   previewHtml: string

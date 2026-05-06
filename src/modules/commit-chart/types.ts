@@ -1,5 +1,5 @@
 export interface CommitChartData {
   counts: number[]
-  from: string
-  to: string
+  from: number
+  to: number
 }

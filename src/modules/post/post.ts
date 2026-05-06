@@ -1,4 +1,5 @@
 import { createActor } from 'xstate'
+import { subscribeToLocale } from '../../i18n'
 import { createLoadingMachine } from '../../lib/loading-machine'
 import { loadPost } from './load'
 import type { GeneratedPost } from './types'
@@ -12,7 +13,9 @@ export function renderPost(root: HTMLElement, params: Record<string, string>): (
   const slug = params.slug
   const actor = createActor(createLoadingMachine<GeneratedPost>(() => loadPost(slug)))
 
-  actor.subscribe((snapshot) => {
+  const updateView = (): void => {
+    const snapshot = actor.getSnapshot()
+
     if (snapshot.matches('loading')) {
       renderPostSkeleton(root)
     } else if (snapshot.matches('error')) {
@@ -20,12 +23,17 @@ export function renderPost(root: HTMLElement, params: Record<string, string>): (
     } else if (snapshot.matches('idle') && snapshot.context.data) {
       renderGeneratedPost(root, snapshot.context.data)
     }
+  }
+  actor.subscribe(() => {
+    updateView()
   })
 
   actor.start()
   actor.send({ type: 'TRIGGER' })
+  const localeCleanup = subscribeToLocale(updateView)
 
   return () => {
+    localeCleanup()
     actor.stop()
   }
 }

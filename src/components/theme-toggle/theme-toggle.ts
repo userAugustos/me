@@ -1,3 +1,5 @@
+import { t } from '../../i18n'
+
 type Theme = 'light' | 'dark'
 
 const STORAGE_KEY = 'theme'
@@ -28,19 +30,19 @@ function applyTheme(theme: Theme): void {
   persistTheme(theme)
 }
 
-function syncButton(button: HTMLElement, theme: Theme): void {
+export function syncThemeToggle(button: HTMLElement, theme: Theme = currentTheme()): void {
   button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false')
-  button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme')
+  button.setAttribute('aria-label', theme === 'dark' ? t('topbar.switchToLightTheme') : t('topbar.switchToDarkTheme'))
   button.dataset.theme = theme
 }
 
 export function attachThemeToggle(button: HTMLElement): void {
-  syncButton(button, currentTheme())
+  syncThemeToggle(button, currentTheme())
 
   button.addEventListener('click', () => {
     const next: Theme = currentTheme() === 'dark' ? 'light' : 'dark'
     applyTheme(next)
-    syncButton(button, next)
+    syncThemeToggle(button, next)
   })
 
   if (readStoredTheme() === null) {
@@ -49,7 +51,7 @@ export function attachThemeToggle(button: HTMLElement): void {
       if (readStoredTheme() !== null) return
       const next: Theme = event.matches ? 'dark' : 'light'
       document.documentElement.dataset.theme = next
-      syncButton(button, next)
+      syncThemeToggle(button, next)
     })
   }
 }

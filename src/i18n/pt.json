@@ -1,0 +1,83 @@
+{
+  "site": {
+    "title": "Felipe Augustos — Notas de Campo",
+    "fieldNotes": "Notas de campo"
+  },
+  "common": {
+    "loading": "Carregando…",
+    "retry": "Tentar novamente",
+    "backHome": "Voltar",
+    "loadingPosts": "Carregando posts…"
+  },
+  "topbar": {
+    "role": "Engenheiro de Software",
+    "localeSwitcher": "Mudar idioma",
+    "switchToLightTheme": "Mudar para tema claro",
+    "switchToDarkTheme": "Mudar para tema escuro"
+  },
+  "home": {
+    "heroLead": "Notas",
+    "heroTail": "sobre software, paternidade, aprendizado e o resto da vida.",
+    "heroDescription": "Um arquivo pessoal sobre sistemas distribuídos, máquinas de estado, paternidade, curiosidades da semana, buracos de coelho sobre aviação e, de vez em quando, NBA ou Mario Kart. Escrito em português ou em inglês, dependendo do dia.",
+    "heroStatus": "Disponível para novos projetos · Q3 2026",
+    "currentNotesAria": "Notas atuais",
+    "filter": "Filtro",
+    "filtersAria": "Filtrar posts por tipo",
+    "currentlyWriting": "Escrevendo agora",
+    "recentCommits": "Últimos 30 dias (apenas repositórios públicos)",
+    "elsewhere": "Em outros lugares",
+    "externalProfilesAria": "Perfis externos",
+    "contact": "Contato",
+    "contactDescription": "Melhor jeito de falar comigo. Eu leio tudo, respondo a maioria.",
+    "footerDescription": "Composto em Newsreader e JetBrains Mono. Sem analytics. Sem cookies. Feito à mão com HTML, TypeScript e Tailwind.",
+    "footerCopyright": "© 2026 Felipe Augustos · Todos os direitos invertidos.",
+    "footerVersion": "v7.4.2",
+    "footerDeploy": "Último deploy · há 2h"
+  },
+  "feed": {
+    "filters": {
+      "all": "Todos",
+      "essay": "Ensaios",
+      "repo": "Repos",
+      "talk": "Palestras",
+      "post": "Posts",
+      "note": "Notas"
+    },
+    "kinds": {
+      "essay": "Ensaio",
+      "repo": "Repo",
+      "talk": "Palestra",
+      "post": "Post",
+      "note": "Nota"
+    },
+    "errors": {
+      "load": "Não foi possível carregar os posts."
+    }
+  },
+  "post": {
+    "backToFieldNotes": "Notas de campo",
+    "errors": {
+      "load": "Não foi possível carregar este post."
+    }
+  },
+  "commitChart": {
+    "loading": "Carregando commits…",
+    "total": "{count} commits",
+    "errors": {
+      "load": "Não foi possível carregar os commits."
+    }
+  },
+  "weather": {
+    "location": "Itaquaquecetuba, SP",
+    "fallback": "{vibe} · {location}",
+    "current": "{vibe} · {temperature}°C · {location}",
+    "vibes": {
+      "cold": "Frio",
+      "chilly": "Fresco",
+      "mild": "Ameno",
+      "warm": "Quente",
+      "hot": "Calor",
+      "veryHot": "Muito quente"
+    }
+  }
+}

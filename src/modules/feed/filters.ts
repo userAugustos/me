@@ -1,19 +1,20 @@
+import { t } from '../../i18n'
 import type { FeedItem, FeedKind } from './types'
 
 type FilterKind = FeedKind | 'all'
 
 interface FilterDef {
   kind: FilterKind
-  label: string
+  labelKey: 'feed.filters.all' | 'feed.filters.essay' | 'feed.filters.repo' | 'feed.filters.talk' | 'feed.filters.post' | 'feed.filters.note'
 }
 
 const FILTER_DEFS: FilterDef[] = [
-  { kind: 'all', label: 'All' },
-  { kind: 'essay', label: 'Essays' },
-  { kind: 'repo', label: 'Repos' },
-  { kind: 'talk', label: 'Talks' },
-  { kind: 'post', label: 'Posts' },
-  { kind: 'note', label: 'Notes' },
+  { kind: 'all', labelKey: 'feed.filters.all' },
+  { kind: 'essay', labelKey: 'feed.filters.essay' },
+  { kind: 'repo', labelKey: 'feed.filters.repo' },
+  { kind: 'talk', labelKey: 'feed.filters.talk' },
+  { kind: 'post', labelKey: 'feed.filters.post' },
+  { kind: 'note', labelKey: 'feed.filters.note' },
 ]
 
 const BUTTON_CLASS =
@@ -27,7 +28,7 @@ function countItems(items: FeedItem[], kind: FilterKind): number {
 }
 
 function buttonHTML(def: FilterDef, count: number, active: boolean): string {
-  return `<button type="button" data-filter="${def.kind}" aria-pressed="${active}" class="${BUTTON_CLASS}">${def.label} <span class="${COUNT_CLASS}">${count}</span></button>`
+  return `<button type="button" data-filter="${def.kind}" aria-pressed="${active}" class="${BUTTON_CLASS}">${t(def.labelKey)} <span class="${COUNT_CLASS}">${count}</span></button>`
 }
 
 function showItem(item: HTMLElement, index: number): void {

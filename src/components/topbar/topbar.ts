@@ -1,7 +1,8 @@
 import template from './topbar.html?raw'
 import { writeDateline } from '../dateline/dateline'
-import { attachThemeToggle } from '../theme-toggle/theme-toggle'
+import { attachThemeToggle, syncThemeToggle } from '../theme-toggle/theme-toggle'
 import { loadWeather } from '../weather/weather'
+import { getLocale, isLocale, setLocale, subscribeToLocale, translateFragment } from '../../i18n'
 
 function pick<T extends HTMLElement>(root: ParentNode, selector: string): T {
   const element = root.querySelector<T>(selector)
@@ -20,7 +21,38 @@ function buildRoot(): HTMLElement {
 export function mountTopbar(placeholder: HTMLElement): void {
   const root = buildRoot()
   placeholder.replaceWith(root)
-  writeDateline(pick(root, '[data-dateline]'))
-  attachThemeToggle(pick(root, '[data-theme-toggle]'))
-  void loadWeather(pick(root, '[data-weather]'))
+  const localeSwitch = pick(root, '[data-locale-switch]')
+  const themeToggle = pick(root, '[data-theme-toggle]')
+  const dateline = pick(root, '[data-dateline]')
+  const weather = pick(root, '[data-weather]')
+
+  attachLanguageToggle(localeSwitch)
+  attachThemeToggle(themeToggle)
+
+  const render = (): void => {
+    translateFragment(root)
+    syncLanguageToggle(localeSwitch)
+    syncThemeToggle(themeToggle)
+    writeDateline(dateline)
+    void loadWeather(weather)
+  }
+
+  render()
+  subscribeToLocale(render)
+}
+
+function syncLanguageToggle(root: HTMLElement): void {
+  const locale = getLocale()
+  root.querySelectorAll<HTMLButtonElement>('button[data-locale-option]').forEach((button) => {
+    button.setAttribute('aria-pressed', button.dataset.localeOption === locale ? 'true' : 'false')
+  })
+}
+
+function attachLanguageToggle(root: HTMLElement): void {
+  root.querySelectorAll<HTMLButtonElement>('button[data-locale-option]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const locale = button.dataset.localeOption
+      if (isLocale(locale)) setLocale(locale)
+    })
+  })
 }

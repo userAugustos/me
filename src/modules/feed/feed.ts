@@ -1,4 +1,5 @@
 import { createActor } from 'xstate'
+import { subscribeToLocale } from '../../i18n'
 import { createLoadingMachine } from '../../lib/loading-machine'
 import { mountFilters } from './filters'
 import { loadFeed } from './load'
@@ -11,7 +12,9 @@ export function mountFeed(
 ): () => void {
   const actor = createActor(createLoadingMachine<FeedItem[]>(loadFeed))
 
-  actor.subscribe(snapshot => {
+  const updateView = (): void => {
+    const snapshot = actor.getSnapshot()
+
     if (snapshot.matches('loading')) {
       renderFeedSkeleton(feedRoot)
       filtersRoot.innerHTML = ''
@@ -22,12 +25,17 @@ export function mountFeed(
       renderFeed(feedRoot, snapshot.context.data)
       mountFilters(filtersRoot, feedRoot, snapshot.context.data)
     }
+  }
+  actor.subscribe(() => {
+    updateView()
   })
 
   actor.start()
   actor.send({ type: 'TRIGGER' })
+  const localeCleanup = subscribeToLocale(updateView)
 
   return () => {
+    localeCleanup()
     actor.stop()
   }
 }
