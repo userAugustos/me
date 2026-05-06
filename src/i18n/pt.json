@@ -31,8 +31,10 @@
     "contactDescription": "Melhor jeito de falar comigo. Eu leio tudo, respondo a maioria.",
     "footerDescription": "Composto em Newsreader e JetBrains Mono. Sem analytics. Sem cookies. Feito à mão com HTML, TypeScript e Tailwind.",
     "footerCopyright": "© 2026 Felipe Augustos · Todos os direitos invertidos.",
-    "footerVersion": "v7.4.2",
-    "footerDeploy": "Último deploy · há 2h"
+    "footerVersion": "0.0.3",
+    "footerDeploy": "Último deploy · {timeAgo}",
+    "footerDeployLoading": "Último deploy · carregando…",
+    "footerDeployFallback": "Último deploy · indisponível"
   },
   "feed": {
     "filters": {

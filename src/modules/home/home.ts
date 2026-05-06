@@ -2,6 +2,7 @@ import { mountFeed } from '../feed/feed';
 import { items as tickerItems } from '../ticker/items';
 import { renderTicker } from '../ticker/render-ticker';
 import { items as elsewhereLinks } from './components/elsewhere/items';
+import { mountDeployStatus } from './components/deploy-status/deploy-status';
 import { renderElsewhere } from './components/elsewhere/render-elsewhere';
 import { items as shippingItems } from './components/now-shipping/items';
 import { renderNowShipping } from './components/now-shipping/render-now-shipping';
@@ -29,6 +30,9 @@ export function renderHome(root: HTMLElement): () => void {
   renderNowShipping(pick(root, '[data-now-shipping]'), shippingItems);
   // const commitChartCleanup = mountCommitChart(pick(root, '[data-commit-chart]'))
   renderElsewhere(pick(root, '[data-elsewhere]'), elsewhereLinks);
+  const deployStatusCleanup = mountDeployStatus(
+    pick(root, '[data-footer-deploy]'),
+  );
   const parallaxCleanup = attachIntroParallax(
     pick(root, '[data-parallax-target]'),
   );
@@ -41,6 +45,7 @@ export function renderHome(root: HTMLElement): () => void {
     localeCleanup();
     feedCleanup();
     // commitChartCleanup()
+    deployStatusCleanup();
     parallaxCleanup();
   };
 }
