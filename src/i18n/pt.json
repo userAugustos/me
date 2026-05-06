@@ -19,7 +19,7 @@
     "heroLead": "Notas",
     "heroTail": "sobre software, paternidade, aprendizado e o resto da vida.",
     "heroDescription": "Um arquivo pessoal sobre sistemas distribuídos, máquinas de estado, paternidade, curiosidades da semana, buracos de coelho sobre aviação e, de vez em quando, NBA ou Mario Kart. Escrito em português ou em inglês, dependendo do dia.",
-    "heroStatus": "Disponível para novos projetos · Q3 2026",
+    "heroStatus": "Disponível para novos projetos",
     "currentNotesAria": "Notas atuais",
     "filter": "Filtro",
     "filtersAria": "Filtrar posts por tipo",
@@ -41,14 +41,12 @@
       "all": "Todos",
       "essay": "Ensaios",
       "repo": "Repos",
-      "talk": "Palestras",
       "post": "Posts",
       "note": "Notas"
     },
     "kinds": {
       "essay": "Ensaio",
       "repo": "Repo",
-      "talk": "Palestra",
       "post": "Post",
       "note": "Nota"
     },

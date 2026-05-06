@@ -19,7 +19,7 @@
     "heroLead": "Notes",
     "heroTail": "on software, parenthood, learning, and the rest of life.",
     "heroDescription": "A personal archive of distributed systems, state machines, parenting, current curiosities, aviation rabbit holes, and the occasional NBA or Mario Kart tangent. Written in Portuguese or English, depending on the day.",
-    "heroStatus": "Available for new work · Q3 2026",
+    "heroStatus": "Available for work",
     "currentNotesAria": "Current notes",
     "filter": "Filter",
     "filtersAria": "Filter posts by kind",
@@ -41,14 +41,12 @@
       "all": "All",
       "essay": "Essays",
       "repo": "Repos",
-      "talk": "Talks",
       "post": "Posts",
       "note": "Notes"
     },
     "kinds": {
       "essay": "Essay",
       "repo": "Repo",
-      "talk": "Talk",
       "post": "Post",
       "note": "Note"
     },
