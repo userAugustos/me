@@ -1,5 +1,20 @@
 [
   {
+    "slug": "how-SPA-routers-works",
+    "title": "How SPA routers work",
+    "kind": "essay",
+    "date": "2026-04-30",
+    "meta": "12 min read",
+    "tags": [
+      "router",
+      "javascript",
+      "essay"
+    ],
+    "image_url": "/assets/router-bg.png",
+    "href": "/posts/how-SPA-routers-works",
+    "previewHtml": "<p>The browser was built for documents. When you click a link, it fetches a new page. Modern SPAs work around, the piece of code responsible for that is the router.</p>\n<p>I built a small one from scratch to understand what Next.js, TanStack Router, and React Router are actually doing underneath.</p>"
+  },
+  {
     "slug": "state-machines-bugs",
     "title": "On state machines, and why your bug isn't where you think it is",
     "kind": "essay",
