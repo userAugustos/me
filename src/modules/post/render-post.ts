@@ -1,7 +1,7 @@
-import { intlLocaleFor, t } from '../../i18n'
-import { withBasePath } from '../../lib/base-path'
-import { handleNavigate } from '../../lib/navigation'
-import type { GeneratedPost } from './types'
+import { intlLocaleFor, t } from '../../i18n';
+import { withBasePath } from '../../lib/base-path';
+import { handleNavigate } from '../../lib/navigation';
+import type { GeneratedPost } from './types';
 
 function formatDate(isoDate: string): string {
   return new Intl.DateTimeFormat(intlLocaleFor(), {
@@ -9,22 +9,28 @@ function formatDate(isoDate: string): string {
     day: 'numeric',
     year: 'numeric',
     timeZone: 'UTC',
-  }).format(new Date(`${isoDate}T00:00:00Z`))
+  }).format(new Date(`${isoDate}T00:00:00Z`));
 }
 
 function tagsHTML(tags: string[]): string {
   return tags
-    .map((tag) => `<li><span class="inline-flex rounded-sm border border-rule bg-paper px-2 py-1">${tag}</span></li>`)
-    .join('')
+    .map(
+      tag =>
+        `<li><span class="inline-flex rounded-sm border border-rule bg-paper px-2 py-1">${tag}</span></li>`,
+    )
+    .join('');
 }
 
-export function renderGeneratedPost(root: HTMLElement, post: GeneratedPost): void {
-  document.title = `${post.title} — Felipe Augustos`
+export function renderGeneratedPost(
+  root: HTMLElement,
+  post: GeneratedPost,
+): void {
+  document.title = `${post.title} — Felipe Augustos`;
   root.innerHTML = `
-    <article class="max-w-3xl pt-10">
+    <article class="max-w-4xl pt-10">
       <a href="${withBasePath('/')}" data-home-link class="mb-9 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-3 no-underline transition-colors duration-300 hover:text-accent">← ${t('post.backToFieldNotes')}</a>
 
-      <header class="mb-8 border-b-2 border-ink pb-7">
+      <header class="mb-8 pb-5">
         <p class="mb-3 font-mono text-xs uppercase tracking-widest text-ink-3">
           <span class="text-accent">${t(`feed.kinds.${post.kind}`)}</span>
           <span class="mx-2 text-ink-4">/</span>
@@ -38,11 +44,13 @@ export function renderGeneratedPost(root: HTMLElement, post: GeneratedPost): voi
 
       <div class="post-content">${post.html}</div>
     </article>
-  `
+  `;
 
-  root.querySelector<HTMLAnchorElement>('[data-home-link]')?.addEventListener('click', (event) => {
-    handleNavigate(event, '/')
-  })
+  root
+    .querySelector<HTMLAnchorElement>('[data-home-link]')
+    ?.addEventListener('click', event => {
+      handleNavigate(event, '/');
+    });
 }
 
 export function renderPostSkeleton(root: HTMLElement): void {
@@ -60,7 +68,7 @@ export function renderPostSkeleton(root: HTMLElement): void {
         <div class="h-4 w-2/3 rounded-sm bg-rule-soft"></div>
       </div>
     </article>
-  `
+  `;
 }
 
 export function renderPostError(root: HTMLElement, retry: () => void): void {
@@ -70,10 +78,12 @@ export function renderPostError(root: HTMLElement, retry: () => void): void {
       <button type="button" data-retry class="ml-2 underline text-ink hover:text-accent cursor-pointer">${t('common.retry')}</button>
       <a href="${withBasePath('/')}" data-home-link class="ml-4 underline text-ink hover:text-accent">${t('common.backHome')}</a>
     </div>
-  `
-  const button = root.querySelector<HTMLButtonElement>('[data-retry]')
-  button?.addEventListener('click', retry)
-  root.querySelector<HTMLAnchorElement>('[data-home-link]')?.addEventListener('click', (event) => {
-    handleNavigate(event, '/')
-  })
+  `;
+  const button = root.querySelector<HTMLButtonElement>('[data-retry]');
+  button?.addEventListener('click', retry);
+  root
+    .querySelector<HTMLAnchorElement>('[data-home-link]')
+    ?.addEventListener('click', event => {
+      handleNavigate(event, '/');
+    });
 }

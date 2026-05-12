@@ -1,58 +1,94 @@
-import { renderHome } from './modules/home/home'
-import { renderPost } from './modules/post/post'
-import { stripBasePath, withBasePath } from './lib/base-path'
-import { setNavigator } from './lib/navigation'
+import { renderHome } from './modules/home/home';
+import { renderPost } from './modules/post/post';
 
-type Cleanup = () => void
+const PARAM_PATTERN_STR = '$';
+const root = document.querySelector<HTMLDivElement>('#app');
 
-type Route = {
-  pattern: RegExp
-  render: (root: HTMLElement, params: Record<string, string>) => void | Cleanup
+type Cleanup = () => void;
+
+interface Route {
+  pattern: string;
+  params: string[];
+  render: (root: HTMLElement, params: Record<string, string>) => void | Cleanup;
 }
 
 const routes: Route[] = [
   {
-    pattern: /^\/$/,
-    render: (root) => renderHome(root),
+    pattern: '/',
+    params: [],
+    render: root => renderHome(root),
   },
   {
-    pattern: /^\/posts\/([^/]+)$/,
+    pattern: '/posts/$postId',
+    params: ['postId'],
     render: (root, params) => renderPost(root, params),
   },
-]
+];
 
-let appRoot: HTMLElement | null = null
-let currentCleanup: Cleanup | null = null
+export function matchPath(
+  url: string,
+  pattern: string,
+): null | Record<string, string> {
+  const urlArr = url.split('/');
+  const patternArr = pattern.split('/');
+  const params: Record<string, string> = {};
 
-function paramsFor(route: Route, match: RegExpMatchArray): Record<string, string> {
-  if (route.pattern.source.includes('posts')) return { slug: match[1] }
-  return {}
-}
-
-function renderCurrentRoute(): void {
-  if (!appRoot) return
-  currentCleanup?.()
-  currentCleanup = null
-  const pathname = stripBasePath(location.pathname)
-
-  for (const route of routes) {
-    const match = pathname.match(route.pattern)
-    if (!match) continue
-    currentCleanup = route.render(appRoot, paramsFor(route, match)) ?? null
-    return
+  if (urlArr.length !== patternArr.length) {
+    return null;
   }
 
-  appRoot.innerHTML = '<h1 class="font-serif text-ink">404</h1>'
+  for (let i = 0; i < urlArr.length; i++) {
+    if (patternArr[i].startsWith(PARAM_PATTERN_STR)) {
+      // we know it's supossed to be a param
+      params[patternArr[i].slice(1)] = urlArr[i];
+      continue;
+    }
+    if (urlArr[i] !== patternArr[i]) {
+      return null;
+    }
+  }
+
+  return params;
 }
 
-export function mountRouter(app: HTMLElement): void {
-  appRoot = app
-  setNavigator((to) => {
-    history.pushState({}, '', withBasePath(to))
-    renderCurrentRoute()
-    scrollTo(0, 0)
-  })
+// This update the DOM
+function handleRouteChange(pathname: string) {
+  console.debug(pathname);
+  // accessing root = closure
+  if (!root) {
+    throw new Error('Router setup: #app element not found in DOM');
+  }
 
-  window.addEventListener('popstate', renderCurrentRoute)
-  renderCurrentRoute()
+  for (const route of routes) {
+    const routeParams = matchPath(pathname, route.pattern);
+    if (routeParams) {
+      return route.render(root, routeParams);
+    }
+  }
+
+  root.innerHTML = `<p>404</p>`;
+
+  return;
 }
+
+window.addEventListener('popstate', () => handleRouteChange(location.pathname));
+handleRouteChange(window.location.pathname);
+
+document.addEventListener('click', event => {
+  // 1. Achar o <a> mais próximo do clique (event delegation)
+  const target = event.target as Element;
+  if (!target) return;
+
+  const link = target.closest('a');
+  if (!link) return;
+
+  // if it's external link
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  if (link.origin !== location.origin) return;
+  if (link.target === '_blank') return;
+  if (link.download) return;
+
+  event.preventDefault();
+  history.pushState({}, '', link.href);
+  handleRouteChange(link.pathname);
+});
