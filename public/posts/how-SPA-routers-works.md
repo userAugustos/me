@@ -4,7 +4,6 @@ title: 'How SPA routers work'
 kind: essay
 date: 2026-04-30
 meta: 12 min read
-image_url: /assets/router-bg.png
 tags:
   - router
   - javascript

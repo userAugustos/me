@@ -9,7 +9,9 @@ tags:
 ---
 
 <!-- preview:start -->
+
 Especially when you're sure. The bugs I'm proudest of catching all started with the sentence "I don't need a test for this."
+
 <!-- preview:end -->
 
 # Reminder to self: write the test first, even when you're sure
