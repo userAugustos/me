@@ -7,7 +7,8 @@ meta: 1 min read
 tags:
   - Elysia api
   - Ledger proof system
-  - state machines / events
+  - state machines
+  - events
 ---
 
 <!-- preview:start -->
