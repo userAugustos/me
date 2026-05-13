@@ -1,0 +1,13 @@
+{
+  "slug": "chess-game-api",
+  "title": "Chess game api",
+  "kind": "repo",
+  "date": "2026-05-12",
+  "meta": "1 min read",
+  "tags": [
+    "Elysia api",
+    "Ledger proof system",
+    "state machines / events"
+  ],
+  "html": "<p>I just literrally come up with this after watching <a href=\"https://www.youtube.com/watch?v=ktM-ocowE4Q&#x26;t=2472s\">Criando um Ledger (entrevista para dev sênior)</a> from Augusto Galego, I just thought \"Well, I understand what a ledger is, I don't want to do exactly what a ledger is, but I could do something with it this knowledge\"</p>\n<p><a href=\"https://github.com/userAugustos/chess-api\">Github repo</a></p>\n<p>I will not write about it, just because I did not made it to write a blog post about it. But its there.</p>"
+}
