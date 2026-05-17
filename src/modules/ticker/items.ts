@@ -1,9 +1,9 @@
 export interface TickerItem {
-  text: string
+  text: string;
   emphasis?: {
-    title: string
-    href?: string
-  }
+    title: string;
+    href?: string;
+  };
 }
 
 export const items: TickerItem[] = [
@@ -14,8 +14,8 @@ export const items: TickerItem[] = [
   {
     text: 'Listening to',
     emphasis: {
-      title: 'Kishi Bashi: NPR Music Tiny Desk Concert',
-      href: 'https://www.youtube.com/watch?v=BgqAmZHkkTg&list=RDBgqAmZHkkTg&start_radio=1',
+      title: 'Duran Duran Invisible',
+      href: 'https://www.youtube.com/watch?v=NRtnUVaRwXM&list=RDNRtnUVaRwXM&start_radio=1',
     },
   },
   {
@@ -27,4 +27,4 @@ export const items: TickerItem[] = [
   },
   { text: 'Considering moving back to SQLite' },
   { text: 'Avoiding any team tool that is not Slack' },
-]
+];

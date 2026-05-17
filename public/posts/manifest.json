@@ -8,7 +8,8 @@
     "tags": [
       "Elysia api",
       "Ledger proof system",
-      "state machines / events"
+      "state machines",
+      "events"
     ],
     "href": "/posts/chess-game-api",
     "previewHtml": "<p>Chess API built on an append-only event ledger. Game state is never stored directly — it's derived on every read by replaying events from the beginning. XState drives lifecycle transitions, chess.js enforces board rules. The design is just the event stream.</p>"

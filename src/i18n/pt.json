@@ -67,6 +67,12 @@
       "load": "Não foi possível carregar os commits."
     }
   },
+  "wish-list": {
+    "title": "Lista de Desejos"
+  },
+  "watched": {
+    "title": "Assisti e gostei"
+  },
   "weather": {
     "location": "Itaquaquecetuba, SP",
     "fallback": "{vibe} · {location}",

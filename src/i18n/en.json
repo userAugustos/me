@@ -67,6 +67,12 @@
       "load": "Couldn't load commits."
     }
   },
+  "wish-list": {
+    "title": "Wish List"
+  },
+  "watched": {
+    "title": "Watched & Loved"
+  },
   "weather": {
     "location": "Itaquaquecetuba, SP",
     "fallback": "{vibe} · {location}",

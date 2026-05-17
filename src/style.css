@@ -3,6 +3,11 @@
 
 * { box-sizing: border-box; }
 
+::view-transition-group(*) {
+  animation-duration: 0.38s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 html, body { margin: 0; padding: 0; }
 
 body {
