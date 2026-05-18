@@ -1,5 +1,17 @@
 [
   {
+    "slug": "faster-delivery-code",
+    "title": "Code is cheap now, still some people are delivering bad",
+    "kind": "essay",
+    "date": "2026-05-18",
+    "meta": "read with patience",
+    "tags": [
+      "rant"
+    ],
+    "href": "/posts/faster-delivery-code",
+    "previewHtml": "<p>I'm still coming around bad software, and I think there's no excuses. Honestely, I think on Vero we have an incredible good flow with AI right now, and you can ask anyone, we been moving fast, but we have been intentionally critics.</p>"
+  },
+  {
     "slug": "chess-game-api",
     "title": "Chess game api",
     "kind": "repo",
