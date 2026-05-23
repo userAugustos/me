@@ -3,7 +3,7 @@ slug: faster-delivery-code
 title: 'Code is cheap now, still some people are delivering bad'
 kind: essay
 date: 2026-05-18
-meta: read with patience
+meta: lost patience
 tags:
   - rant
 ---
