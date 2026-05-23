@@ -11,4 +11,19 @@ export const items: WatchedItem[] = [
     title: 'The Most Over-Engineered Video Game',
     youtubeId: 'ShsqMEm3hrY',
   },
+  {
+    id: 'video-3',
+    title: 'Gelock Miracle',
+    youtubeId: 'EAFSvM0vonY',
+  },
+  {
+    id: 'video-4',
+    title: 'The Ghost Plane That Flew Itself For HOURS!',
+    youtubeId: 'iWUG1qOCAWg',
+  },
+  {
+    id: 'video-5',
+    title: 'What Elite Software Engineers Do Differently',
+    youtubeId: 'OkXuLNAjrSg',
+  },
 ];
