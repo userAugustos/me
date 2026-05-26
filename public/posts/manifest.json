@@ -1,5 +1,20 @@
 [
   {
+    "slug": "lakitu-gateway",
+    "title": "Lakitu: agent control gateway",
+    "kind": "repo",
+    "date": "2026-05-23",
+    "meta": "1 min read",
+    "tags": [
+      "Turbo repo",
+      "Palm verification",
+      "KYA",
+      "AI Agents"
+    ],
+    "href": "/posts/lakitu-gateway",
+    "previewHtml": "<p>Lakitu is an agent validation and management gateway. Agents are created with Ed25519 keys, registered through Clawkey, and every action request goes through signature validation, replay protection, owner verification with VeryAI, permissions, policy limits, and audit logging before the gateway decides if it should allow, deny, or require approval.</p>"
+  },
+  {
     "slug": "faster-delivery-code",
     "title": "Code is cheap now, still some people are delivering bad",
     "kind": "essay",
