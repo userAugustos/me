@@ -17,7 +17,9 @@ Lakitu is an agent validation and management gateway. Agents are created with Ed
 
 <!-- preview:end -->
 
-Lakitu is an agent validation and management gateway.
+Lakitu is an agent validation and management gateway. Here you can't fool him
+
+![Lakitu mad with you](https://media1.tenor.com/m/dBFWIJC8ScIAAAAC/lakitu-lakitu-wrong-way.gif)
 
 Agents are created with Ed25519 keys, registered through [Clawkey](https://ag9.ai/), and every action request goes through signature validation, replay protection, owner verification with VeryAI, permissions, policy limits, and audit logging before the gateway decides if it should allow, deny, or require approval.
 
