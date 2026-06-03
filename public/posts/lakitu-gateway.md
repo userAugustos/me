@@ -21,6 +21,8 @@ Lakitu is an agent validation and management gateway. Here you can't fool him
 
 ![Lakitu mad with you](https://media1.tenor.com/m/dBFWIJC8ScIAAAAC/lakitu-lakitu-wrong-way.gif)
 
+Note: the deployed website at `https://lakitu-veryai.up.railway.app/login` is no longer available. The GitHub repo is still available with docs and diagrams for anyone who wants to learn from it.
+
 Agents are created with Ed25519 keys, registered through [Clawkey](https://ag9.ai/), and every action request goes through signature validation, replay protection, owner verification with VeryAI, permissions, policy limits, and audit logging before the gateway decides if it should allow, deny, or require approval.
 
 It uses turbo repo with a React 19 SPA, Bun + Elysia API, Drizzle with SQLite(the best you can have), and shadcn/Tailwind.

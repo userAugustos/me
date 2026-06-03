@@ -26,4 +26,26 @@ export const items: WatchedItem[] = [
     title: 'What Elite Software Engineers Do Differently',
     youtubeId: 'OkXuLNAjrSg',
   },
+  {
+    id: 'video-6',
+    title:
+      'Gyroscope and Grit #chrisboden #comedy #engineering #educational #diy #physics #lifelessons #goals',
+    youtubeId: 'ZTaAqpWtJs8',
+  },
+  {
+    id: 'video-7',
+    title: 'Building pi in a World of Slop - Mario Zechner',
+    youtubeId: 'RjfbvDXpFls',
+  },
+  {
+    id: 'video-8',
+    title:
+      'Grant Sanderson (@3Blue1Brown): The High Cost of Being a Second-Hand Thinker',
+    youtubeId: 'Rtkac4WHC1o',
+  },
+  {
+    id: 'video-9',
+    title: 'Building OpenCode with Dax Raad',
+    youtubeId: '1VqKUrxR2C8',
+  },
 ];
