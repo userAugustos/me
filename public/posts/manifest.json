@@ -1,5 +1,20 @@
 [
   {
+    "slug": "output-not-deterministic",
+    "title": "The output is not deterministic, I don't expect it to be",
+    "kind": "essay",
+    "date": "2026-08-24",
+    "meta": "guardrails over review",
+    "tags": [
+      "AI Agents",
+      "code review",
+      "e2e tests",
+      "guardrails"
+    ],
+    "href": "/posts/output-not-deterministic",
+    "previewHtml": "<p>I don't verify every line of generated code anymore. I still read all of it, but at scroll speed. Three years ago a pull request cost me forty or fifty minutes of tracing every <code>if</code> by hand, and I stopped doing that on purpose.</p>"
+  },
+  {
     "slug": "lakitu-gateway",
     "title": "Lakitu: agent control gateway",
     "kind": "repo",
