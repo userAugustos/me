@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "generate:posts": "bun scripts/generate-posts.mjs",
+    "generate:meta": "bun scripts/generate-meta-pages.mjs",
     "dev": "bun run generate:posts && vite",
     "check": "tsc",
-    "build": "bun run generate:posts && bun run check && vite build",
+    "build": "bun run generate:posts && bun run check && vite build && bun run generate:meta",
     "preview": "vite preview"
   },
   "devDependencies": {
