@@ -1,40 +1,27 @@
 <header class="border-b-2 border-ink pb-8 pt-12">
-  <h1
-    data-parallax-target
+  <h1 data-parallax-target
     class="fade-up m-0 mb-4 max-w-4xl font-sans text-4xl tracking-tight text-balance text-ink-2 sm:text-5xl lg:text-6xl"
-    style="--delay: 0.18s"
-  >
+    style="--delay: 0.18s">
     <strong data-i18n="home.heroLead" class="font-bold text-ink">Notes</strong>
-    <em
-      data-i18n="home.heroTail"
-      class="font-serif not-italic font-normal text-ink-2"
-      >on software, parenthood, learning, and the rest of life.</em
-    >
+    <em data-i18n="home.heroTail" class="font-serif not-italic font-normal text-ink-2">on software, parenthood,
+      learning, and the rest of life.</em>
   </h1>
-  <p
-    data-i18n="home.heroDescription"
-    class="fade-up max-w-3xl font-sans text-base leading-7 text-ink-3 text-pretty"
-    style="--delay: 0.28s"
-  >
+  <p data-i18n="home.heroDescription" class="fade-up max-w-3xl font-sans text-base leading-7 text-ink-3 text-pretty"
+    style="--delay: 0.28s">
     A personal archive of distributed systems, state machines, parenting,
     current curiosities, aviation rabbit holes, and the occasional NBA or Mario
     Kart tangent. Written in Portuguese or English, depending on the day.
   </p>
-  <p
-    class="fade-up mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-2 tabular-nums"
-    style="--delay: 0.36s"
-  >
+  <p class="fade-up mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-2 tabular-nums"
+    style="--delay: 0.36s">
     <span aria-hidden="true" class="blip"></span>
     <span data-i18n="home.heroStatus">Available for work</span>
   </p>
 </header>
 
-<section
-  data-i18n-aria-label="home.currentNotesAria"
-  aria-label="Current notes"
+<section data-i18n-aria-label="home.currentNotesAria" aria-label="Current notes"
   class="fade-in flex items-center gap-4 overflow-hidden border-b border-rule py-3 font-mono text-xs uppercase tracking-wider text-ink-3"
-  style="--delay: 0.6s"
->
+  style="--delay: 0.6s">
   <div data-ticker class="ticker-track flex shrink-0 whitespace-nowrap"></div>
 </section>
 
@@ -44,22 +31,12 @@
       Field notes
     </h2>
 
-    <header
-      class="fade-up mb-7 flex flex-wrap items-center gap-3"
-      style="--delay: 0.7s"
-    >
-      <p
-        data-i18n="home.filter"
-        class="m-0 font-mono text-xs uppercase tracking-widest text-ink-3"
-      >
+    <header class="fade-up mb-7 flex flex-wrap items-center gap-3" style="--delay: 0.7s">
+      <p data-i18n="home.filter" class="m-0 font-mono text-xs uppercase tracking-widest text-ink-3">
         Filter
       </p>
-      <nav
-        data-i18n-aria-label="home.filtersAria"
-        aria-label="Filter posts by kind"
-        data-filters
-        class="flex flex-wrap items-center gap-2"
-      ></nav>
+      <nav data-i18n-aria-label="home.filtersAria" aria-label="Filter posts by kind" data-filters
+        class="flex flex-wrap items-center gap-2"></nav>
     </header>
 
     <div data-feed class="flex flex-col" aria-live="polite"></div>
@@ -67,99 +44,51 @@
 
   <aside class="w-full shrink-0 lg:sticky lg:top-6 lg:max-w-sm">
     <div class="flex flex-col gap-9">
-      <section
-        aria-labelledby="shipping-heading"
-        class="fade-up border-t border-ink pt-4"
-        style="--delay: 0.85s"
-      >
-        <h2
-          id="shipping-heading"
-          data-i18n="home.currentlyWriting"
-          class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-ink"
-        >
+      <section aria-labelledby="shipping-heading" class="fade-up border-t border-ink pt-4" style="--delay: 0.85s">
+        <h2 id="shipping-heading" data-i18n="home.currentlyWriting"
+          class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-ink">
           Currently writing
         </h2>
         <div data-now-shipping></div>
       </section>
 
-      <section
-        aria-labelledby="commit-heading"
-        class="fade-up border-t border-ink pt-4 hidden"
-        style="--delay: 0.95s"
-      >
-        <h2
-          id="commit-heading"
-          data-i18n="home.recentCommits"
-          class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-ink"
-        >
+      <section aria-labelledby="commit-heading" class="fade-up border-t border-ink pt-4 hidden" style="--delay: 0.95s">
+        <h2 id="commit-heading" data-i18n="home.recentCommits"
+          class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-ink">
           Last 30 days (only public repos)
         </h2>
         <div data-commit-chart></div>
       </section>
 
-      <section
-        aria-labelledby="elsewhere-heading"
-        class="fade-up border-t border-ink pt-4"
-        style="--delay: 1.05s"
-      >
-        <h2
-          id="elsewhere-heading"
-          data-i18n="home.elsewhere"
-          class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-ink"
-        >
+      <section aria-labelledby="elsewhere-heading" class="fade-up border-t border-ink pt-4" style="--delay: 1.05s">
+        <h2 id="elsewhere-heading" data-i18n="home.elsewhere"
+          class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-ink">
           Elsewhere
         </h2>
-        <nav
-          data-i18n-aria-label="home.externalProfilesAria"
-          aria-label="External profiles"
-          data-elsewhere
-        ></nav>
+        <nav data-i18n-aria-label="home.externalProfilesAria" aria-label="External profiles" data-elsewhere></nav>
       </section>
 
-      <section
-        class="fade-up border-t border-ink pt-4"
-        style="--delay: 1.15s"
-      >
-        <a
-          href="/watched"
-          class="group flex items-center justify-between gap-3 border-b border-rule py-3 font-mono text-sm text-ink no-underline transition-colors duration-300 hover:text-accent"
-        >
+      <section class="fade-up border-t border-ink pt-4" style="--delay: 1.15s">
+        <a href="/watched"
+          class="group flex items-center justify-between gap-3 border-b border-rule py-3 font-mono text-sm text-ink no-underline transition-colors duration-300 hover:text-accent">
           <span>Watch with me</span>
-          <span
-            aria-hidden="true"
-            class="shrink-0 text-ink-3 transition-transform duration-300 group-hover:translate-x-1"
-            >→</span
-          >
+          <span aria-hidden="true"
+            class="shrink-0 text-ink-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
         </a>
       </section>
 
-      <section
-        aria-labelledby="contact-heading"
-        class="fade-up border-t border-ink pt-4"
-        style="--delay: 1.25s"
-      >
-        <h2
-          id="contact-heading"
-          data-i18n="home.contact"
-          class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-ink"
-        >
+      <section aria-labelledby="contact-heading" class="fade-up border-t border-ink pt-4" style="--delay: 1.25s">
+        <h2 id="contact-heading" data-i18n="home.contact"
+          class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-ink">
           Contact
         </h2>
-        <a
-          href="mailto:felipe541clash@gmail.com"
-          class="group flex items-center justify-between gap-3 border-b border-rule py-3 font-mono text-sm text-ink no-underline transition-colors duration-300 hover:text-accent"
-        >
-          <span class="min-w-0 break-all">felipe541clash@gmail.com</span>
-          <span
-            aria-hidden="true"
-            class="shrink-0 text-ink-3 transition-transform duration-300 group-hover:translate-x-1"
-            >→</span
-          >
+        <a href="mailto:felipe_augustos84@outlook.com.br"
+          class="group flex items-center justify-between gap-3 border-b border-rule py-3 font-mono text-sm text-ink no-underline transition-colors duration-300 hover:text-accent">
+          <span class="min-w-0 break-all">felipe_augustos84@outlook.com.br</span>
+          <span aria-hidden="true"
+            class="shrink-0 text-ink-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
         </a>
-        <p
-          data-i18n="home.contactDescription"
-          class="mt-3 font-serif text-sm italic leading-6 text-ink-3 text-pretty"
-        >
+        <p data-i18n="home.contactDescription" class="mt-3 font-serif text-sm italic leading-6 text-ink-3 text-pretty">
           Best way to reach me. I read everything, reply to most.
         </p>
       </section>
@@ -168,13 +97,9 @@
 </main>
 
 <footer
-  class="mt-16 flex flex-col gap-4 border-t-2 border-ink pt-7 font-mono text-xs uppercase tracking-wider text-ink-3 sm:flex-row sm:items-start sm:justify-between"
->
+  class="mt-16 flex flex-col gap-4 border-t-2 border-ink pt-7 font-mono text-xs uppercase tracking-wider text-ink-3 sm:flex-row sm:items-start sm:justify-between">
   <div class="max-w-2xl">
-    <p
-      data-i18n="home.footerDescription"
-      class="font-serif text-sm normal-case italic leading-7 text-ink-2"
-    >
+    <p data-i18n="home.footerDescription" class="font-serif text-sm normal-case italic leading-7 text-ink-2">
       Set in Newsreader and JetBrains Mono. No analytics. No cookies. Built by
       hand with HTML, TypeScript, and Tailwind.
     </p>
